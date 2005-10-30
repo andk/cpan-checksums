@@ -101,41 +101,9 @@ sub updatedir ($) {
       $gmtime[5]+=1900;
       $dref->{$de}{mtime} = sprintf "%04d-%02d-%02d", @gmtime[5,4,3];
 
-      my $md5 = Digest::MD5->new;
-      $fh->open("$abs\0") or die "Couldn't open $abs: $!";
-      $md5->addfile($fh);
-      $fh->close;
-      my $digest = $md5->hexdigest;
-      $dref->{$de}{md5} = $digest;
-      $md5 = Digest::MD5->new;
-      if ($de =~ /\.gz$/) {
-        my($buffer, $gz);
-        if ($gz  = Compress::Zlib::gzopen($abs, "rb")) {
-          $md5->add($buffer)
-              while $gz->gzread($buffer) > 0;
-          # Error management?
-          $dref->{$de}{'md5-ungz'} = $md5->hexdigest;
-          $gz->gzclose;
-        }
-      }
+      add_digests($de,$dref,"Digest::MD5",[],"md5",$fh,$abs);
+      add_digests($de,$dref,"Digest::SHA",[256],"sha256",$fh,$abs);
 
-      my $sha256 = new Digest::SHA("256");
-      $fh->open("$abs\0") or die "Couldn't open $abs: $!";
-      $sha256->addfile($fh);
-      $fh->close;
-      $digest = $sha256->hexdigest;
-      $dref->{$de}{sha256} = $digest;
-      $sha256 = new Digest::SHA("256");
-      if ($de =~ /\.gz$/) {
-        my($buffer, $gz);
-        if ($gz  = Compress::Zlib::gzopen($abs, "rb")) {
-          $sha256->add($buffer)
-              while $gz->gzread($buffer) > 0;
-          # Error management?
-          $dref->{$de}{'sha256-ungz'} = $sha256->hexdigest; 
-          $gz->gzclose;
-        }
-      }
     } # ! -d
   }
   $dh->close;
@@ -196,6 +164,27 @@ Writing to $ckfn directly";
   return 2;
 }
 
+sub add_digests ($$$$$$$) {
+  my($de,$dref,$module,$constructor_args,$keyname,$fh,$abs) = @_;
+  my $dig = $module->new(@$constructor_args);
+  $fh->open("$abs\0") or die "Couldn't open $abs: $!";
+  $dig->addfile($fh);
+  $fh->close;
+  my $digest = $dig->hexdigest;
+  $dref->{$de}{$keyname} = $digest;
+  $dig = $module->new(@$constructor_args);
+  if ($de =~ /\.gz$/) {
+    my($buffer, $gz);
+    if ($gz  = Compress::Zlib::gzopen($abs, "rb")) {
+      $dig->add($buffer)
+          while $gz->gzread($buffer) > 0;
+      # Error management?
+      $dref->{$de}{"$keyname-ungz"} = $dig->hexdigest;
+      $gz->gzclose;
+    }
+  }
+}
+
 sub ckcmp ($$) {
   my($old,$new) = @_;
   for ($old,$new) {
@@ -214,7 +203,7 @@ sub investigate ($$) {
   for my $dist (sort keys %$new) {
     if (exists $old->{$dist}) {
       my $headersaid;
-      for my $diff (qw/md5 size md5-ungz mtime/) {
+      for my $diff (qw/md5 sha256 size md5-ungz sha256-ungz mtime/) {
         next unless exists $old->{$dist}{$diff} &&
             exists $new->{$dist}{$diff};
         next if $old->{$dist}{$diff} eq $new->{$dist}{$diff};
@@ -332,7 +321,7 @@ the given value.
 
 =head1 PREREQUISITES
 
-DirHandle, IO::File, Digest::MD5, Compress::Zlib, File::Spec,
+DirHandle, IO::File, Digest::MD5, Digest::SHA, Compress::Zlib, File::Spec,
 Data::Dumper, Data::Compare
 
 =head1 AUTHOR
