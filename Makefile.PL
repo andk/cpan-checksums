@@ -47,6 +47,7 @@ our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
 WriteMakefile(
               'NAME'	=> 'CPAN::Checksums',
               'VERSION_FROM' => 'Checksums.pm',
+              (MM->can("signature_target") ? (SIGN => 1) : ()),
               'PREREQ_PM' => {
                               'Compress::Zlib' => 0,
                               'Data::Compare' => 0,
