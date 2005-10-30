@@ -1,59 +1,104 @@
-2005-01-24  Andreas Koenig  <andk@cpan.org>
+------------------------------------------------------------------------
+r3 | k | 2005-10-30 14:58:32 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
 
-	* Checksums.pm (makehashref): guarantee that a hashref is
-	produced, and not a 0 (as could happen for empty CHECKSUMS files)
+more SVN preparations
+------------------------------------------------------------------------
+r2 | k | 2005-10-30 14:49:50 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/CPAN-Checksums-1.0.tar.gz
+   D /trunk/CPAN-Checksums-1.003.tar.gz
+   D /trunk/CPAN-Checksums-1.004.tar.gz
+   D /trunk/CPAN-Checksums-1.006.tar.gz
+   D /trunk/CPAN-Checksums-1.007.tar.gz
+   D /trunk/CPAN-Checksums-1.008.tar.gz
+   D /trunk/CPAN-Checksums-1.009.tar.gz
+   D /trunk/CPAN-Checksums-1.011.tar.gz
+   D /trunk/CPAN-Checksums-1.012.tar.gz
+   D /trunk/CPAN-Checksums-1.014.tar.gz
+   D /trunk/CPAN-Checksums-1.015.tar.gz
+   D /trunk/CPAN-Checksums-1.016.tar.gz
+   D /trunk/CPAN-Checksums-1.018.tar.gz
+   A /trunk/ChangeLog.old
+   M /trunk/MANIFEST
+   M /trunk/Makefile
+   M /trunk/Makefile.PL
+   M /trunk/README
+   D /trunk/blib
 
-2005-01-23  Andreas Koenig  <andk@cpan.org>
+Starting to use SVN
+------------------------------------------------------------------------
+r1 | k | 2005-10-30 14:07:53 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   A /branches
+   A /tags
+   A /trunk
+   A /trunk/CPAN-Checksums-1.0.tar.gz
+   A /trunk/CPAN-Checksums-1.003.tar.gz
+   A /trunk/CPAN-Checksums-1.004.tar.gz
+   A /trunk/CPAN-Checksums-1.006.tar.gz
+   A /trunk/CPAN-Checksums-1.007.tar.gz
+   A /trunk/CPAN-Checksums-1.008.tar.gz
+   A /trunk/CPAN-Checksums-1.009.tar.gz
+   A /trunk/CPAN-Checksums-1.011.tar.gz
+   A /trunk/CPAN-Checksums-1.012.tar.gz
+   A /trunk/CPAN-Checksums-1.014.tar.gz
+   A /trunk/CPAN-Checksums-1.015.tar.gz
+   A /trunk/CPAN-Checksums-1.016.tar.gz
+   A /trunk/CPAN-Checksums-1.018.tar.gz
+   A /trunk/ChangeLog
+   A /trunk/Checksums.pm
+   A /trunk/MANIFEST
+   A /trunk/META.yml
+   A /trunk/Makefile
+   A /trunk/Makefile.PL
+   A /trunk/RCS
+   A /trunk/RCS/ChangeLog,v
+   A /trunk/RCS/Checksums.pm,v
+   A /trunk/RCS/MANIFEST,v
+   A /trunk/RCS/Makefile.PL,v
+   A /trunk/RCS/README,v
+   A /trunk/README
+   A /trunk/blib
+   A /trunk/blib/arch
+   A /trunk/blib/arch/auto
+   A /trunk/blib/arch/auto/CPAN
+   A /trunk/blib/arch/auto/CPAN/Checksums
+   A /trunk/blib/arch/auto/CPAN/Checksums/.exists
+   A /trunk/blib/bin
+   A /trunk/blib/lib
+   A /trunk/blib/lib/CPAN
+   A /trunk/blib/lib/CPAN/.exists
+   A /trunk/blib/lib/CPAN/Checksums.pm
+   A /trunk/blib/lib/auto
+   A /trunk/blib/lib/auto/CPAN
+   A /trunk/blib/lib/auto/CPAN/Checksums
+   A /trunk/blib/lib/auto/CPAN/Checksums/.exists
+   A /trunk/blib/man1
+   A /trunk/blib/man3
+   A /trunk/blib/man3/.exists
+   A /trunk/blib/man3/CPAN::Checksums.3
+   A /trunk/blib/man3/CPAN::Checksums.3pm
+   A /trunk/blib/script
+   A /trunk/blibdirs.ts
+   A /trunk/pm_to_blib
+   A /trunk/pm_to_blib.ts
+   A /trunk/t
+   A /trunk/t/42.gz
+   A /trunk/t/43
+   A /trunk/t/CHECKSUMS
+   A /trunk/t/RCS
+   A /trunk/t/RCS/42.gz,v
+   A /trunk/t/RCS/43,v
+   A /trunk/t/RCS/CHECKSUMS,v
+   A /trunk/t/RCS/ignore-me
+   A /trunk/t/RCS/updatedir.t,v
+   A /trunk/t/updatedir.t
+   A /trunk/tmp
+   A /trunk/tmp/t1
+   A /trunk/tmp/t2
 
-	* Checksums.pm: Introducing $MIN_MTIME_CHECKSUMS and
-	$IGNORE_MATCH. Should be fully backwards compatible.
-
-2003-02-03  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Checking the return value of close and falling back to normal
-	mode if it isn't success.
-
-	* The released version 1.15 stupidly left in the fallback case the
-	C< 0&&<<''; > in the resulting file. Version 1.16 corrected this.
-
-2003-02-02  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Added optional GnuPG signing of CHECKSUMS files. Courtesy
-	Autrijus Tang.
-
-2002-10-06  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Turn off the generation of 8.3 filenames per default, keep it
-	accessible with a global. Discourage its use.
-
-2002-05-22  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Do not ignore symlinks anymore. Ignoring them is not the right
-	policy: either forbid or list them in the CHECKSUMS file. Up to
-	now a directory that contained only a symlink, remained without
-	CHECKSUMS file, which is stupid and makes (unstoppable) noise in
-	CPAN.pm.
-
-2002-03-31  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* drieux at wetware.com reports that the manpage is missing a
-	prerequisites section. Added now.
-
-2000-12-13  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Return 1 after deleting CHECKSUMS in an empty (or otherwise not
-	indexed) directory. We used to return without argument.
-
-2000-12-11  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Delete CHECKSUMS if directory is empty. 
-
-	* Skip symlinks. Symlinks are considered inappropriate in CPAN
-	author directories. They violate the principle of a one to one
-	relationship between filename and file.
-
-2000-12-10  Andreas J. Koenig  <andreas.koenig@anima.de>
-
-	* Releasing as 1.003
-	
-	* original version; created by h2xs 1.19
+initial import
+------------------------------------------------------------------------

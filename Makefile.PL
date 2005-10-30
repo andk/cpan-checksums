@@ -1,6 +1,6 @@
 use ExtUtils::MakeMaker qw(:DEFAULT);
-my $Id = q$Id$;
-our $VERSION = sprintf "%.3f", 1 + substr(q$Rev: 146 $,4)/1000;
+my $Id = q$Id: Makefile.PL 3 2005-10-30 13:58:32Z k $;
+our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
 
 {
   my $version_diff = 0; # we'll have to die if this becomes true
