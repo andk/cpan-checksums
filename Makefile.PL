@@ -1,10 +1,10 @@
 use ExtUtils::MakeMaker qw(:DEFAULT);
-my $Id = q$Id: Makefile.PL 146 2005-08-09 04:25:21Z k $;
+my $Id = q$Id$;
 our $VERSION = sprintf "%.3f", 1 + substr(q$Rev: 146 $,4)/1000;
 
 {
   my $version_diff = 0; # we'll have to die if this becomes true
-  my $version_from = File::Spec->catfile(qw(lib CPAN.pm));
+  my $version_from = q(Checksums.pm);
 
   if ($ARGV[0] && $ARGV[0] eq "--setversion") {
     shift @ARGV;
