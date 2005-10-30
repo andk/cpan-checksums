@@ -1,4 +1,26 @@
 ------------------------------------------------------------------------
+r6 | k | 2005-10-30 15:02:00 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/ChangeLog
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+
+Rev property!
+------------------------------------------------------------------------
+r5 | k | 2005-10-30 15:00:01 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/blibdirs.ts
+   D /trunk/pm_to_blib
+   D /trunk/pm_to_blib.ts
+
+remove other runtime files
+------------------------------------------------------------------------
+r4 | k | 2005-10-30 14:59:08 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/Makefile
+
+remove |Makefile
+------------------------------------------------------------------------
 r3 | k | 2005-10-30 14:58:32 +0100 (Sun, 30 Oct 2005) | 1 line
 Changed paths:
    M /trunk/Checksums.pm

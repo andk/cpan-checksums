@@ -25,6 +25,7 @@ use Compress::Zlib ();
 use File::Spec ();
 use Data::Dumper ();
 use Data::Compare ();
+use Digest::SHA ();
 
 sub updatedir ($) {
   my($dirname) = @_;
@@ -114,6 +115,24 @@ sub updatedir ($) {
               while $gz->gzread($buffer) > 0;
           # Error management?
           $dref->{$de}{'md5-ungz'} = $md5->hexdigest;
+          $gz->gzclose;
+        }
+      }
+
+      my $sha256 = new Digest::SHA("256");
+      $fh->open("$abs\0") or die "Couldn't open $abs: $!";
+      $sha256->addfile($fh);
+      $fh->close;
+      $digest = $sha256->hexdigest;
+      $dref->{$de}{sha256} = $digest;
+      $sha256 = new Digest::SHA("256");
+      if ($de =~ /\.gz$/) {
+        my($buffer, $gz);
+        if ($gz  = Compress::Zlib::gzopen($abs, "rb")) {
+          $sha256->add($buffer)
+              while $gz->gzread($buffer) > 0;
+          # Error management?
+          $dref->{$de}{'sha256-ungz'} = $sha256->hexdigest; 
           $gz->gzclose;
         }
       }
