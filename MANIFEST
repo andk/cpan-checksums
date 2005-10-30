@@ -6,6 +6,5 @@ Makefile.PL
 README
 t/42.gz
 t/43
-t/RCS/43,v
 t/CHECKSUMS
 t/updatedir.t
