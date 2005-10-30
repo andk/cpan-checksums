@@ -1,8 +1,5 @@
-# CHECKSUMS file written on Sun Oct 30 17:41:22 2005 by CPAN::Checksums (v1.110)
+# CHECKSUMS file written on Sun Oct 30 17:45:04 2005 by CPAN::Checksums (v1.110)
 $cksum = {
-  'RCS' => {
-    'isdir' => 1
-  },
   '44.bz2' => {
     'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
     'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
