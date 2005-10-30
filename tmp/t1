@@ -1,0 +1,26 @@
+# CHECKSUMS file written on Sun Dec 10 08:12:28 2000 by CPAN::Checksums (v1.002)
+$cksum = {
+  '42.gz' => {
+    'md5-ungz' => '50a2fabfdd276f573ff97ace8b11c5f4',
+    'mtime' => '2000-12-10',
+    'md5' => '915cdde7181ab542763969e063b7a9a9',
+    'shortname' => '42.gz',
+    'size' => '26'
+  },
+  '43' => {
+    'mtime' => '2000-12-10',
+    'md5' => '50a2fabfdd276f573ff97ace8b11c5f4',
+    'shortname' => '430.43',
+    'size' => '3'
+  },
+  'RCS' => {
+    'isdir' => 1,
+    'shortname' => 'rcs0.rcs'
+  },
+  'updatedir.t' => {
+    'mtime' => '2000-12-10',
+    'md5' => 'c1777fd6403ec82019c067cb3f3833bc',
+    'shortname' => 'updated0.t',
+    'size' => '955'
+  }
+};

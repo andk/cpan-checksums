@@ -1,0 +1,59 @@
+2005-01-24  Andreas Koenig  <andk@cpan.org>
+
+	* Checksums.pm (makehashref): guarantee that a hashref is
+	produced, and not a 0 (as could happen for empty CHECKSUMS files)
+
+2005-01-23  Andreas Koenig  <andk@cpan.org>
+
+	* Checksums.pm: Introducing $MIN_MTIME_CHECKSUMS and
+	$IGNORE_MATCH. Should be fully backwards compatible.
+
+2003-02-03  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Checking the return value of close and falling back to normal
+	mode if it isn't success.
+
+	* The released version 1.15 stupidly left in the fallback case the
+	C< 0&&<<''; > in the resulting file. Version 1.16 corrected this.
+
+2003-02-02  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Added optional GnuPG signing of CHECKSUMS files. Courtesy
+	Autrijus Tang.
+
+2002-10-06  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Turn off the generation of 8.3 filenames per default, keep it
+	accessible with a global. Discourage its use.
+
+2002-05-22  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Do not ignore symlinks anymore. Ignoring them is not the right
+	policy: either forbid or list them in the CHECKSUMS file. Up to
+	now a directory that contained only a symlink, remained without
+	CHECKSUMS file, which is stupid and makes (unstoppable) noise in
+	CPAN.pm.
+
+2002-03-31  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* drieux at wetware.com reports that the manpage is missing a
+	prerequisites section. Added now.
+
+2000-12-13  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Return 1 after deleting CHECKSUMS in an empty (or otherwise not
+	indexed) directory. We used to return without argument.
+
+2000-12-11  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Delete CHECKSUMS if directory is empty. 
+
+	* Skip symlinks. Symlinks are considered inappropriate in CPAN
+	author directories. They violate the principle of a one to one
+	relationship between filename and file.
+
+2000-12-10  Andreas J. Koenig  <andreas.koenig@anima.de>
+
+	* Releasing as 1.003
+	
+	* original version; created by h2xs 1.19
