@@ -21,6 +21,7 @@ $IGNORE_MATCH = qr{(?i-xsm:readme$)};
 use DirHandle ();
 use IO::File ();
 use Digest::MD5 ();
+use Compress::Bzip2();
 use Compress::Zlib ();
 use File::Spec ();
 use Data::Dumper ();
@@ -174,13 +175,20 @@ sub add_digests ($$$$$$$) {
   $dref->{$de}{$keyname} = $digest;
   $dig = $module->new(@$constructor_args);
   if ($de =~ /\.gz$/) {
-    my($buffer, $gz);
-    if ($gz  = Compress::Zlib::gzopen($abs, "rb")) {
+    my($buffer, $zip);
+    if ($zip  = Compress::Zlib::gzopen($abs, "rb")) {
       $dig->add($buffer)
-          while $gz->gzread($buffer) > 0;
-      # Error management?
+          while $zip->gzread($buffer) > 0;
       $dref->{$de}{"$keyname-ungz"} = $dig->hexdigest;
-      $gz->gzclose;
+      $zip->gzclose;
+    }
+  } elsif ($de =~ /\.bz2$/) {
+    my($buffer, $zip);
+    if ($zip  = Compress::Bzip2::bzopen($abs, "rb")) {
+      $dig->add($buffer)
+          while $zip->bzread($buffer) > 0;
+      $dref->{$de}{"$keyname-unbz2"} = $dig->hexdigest;
+      $zip->bzclose;
     }
   }
 }
