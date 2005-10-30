@@ -70,8 +70,8 @@ DESCRIPTION
         than the given value.
 
 PREREQUISITES
-    DirHandle, IO::File, Digest::MD5, Compress::Zlib, File::Spec,
-    Data::Dumper, Data::Compare
+    DirHandle, IO::File, Digest::MD5, Digest::SHA, Compress::Zlib,
+    File::Spec, Data::Dumper, Data::Compare
 
 AUTHOR
     Andreas Koenig, andreas.koenig@anima.de; GnuPG support by Autrijus Tang

@@ -1,4 +1,54 @@
 ------------------------------------------------------------------------
+r13 | k | 2005-10-30 18:46:03 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_12
+------------------------------------------------------------------------
+r12 | k | 2005-10-30 18:45:44 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+tests rewrote comment in CHECKSUMS file
+------------------------------------------------------------------------
+r11 | k | 2005-10-30 18:43:49 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/RCS
+   M /trunk/t/CHECKSUMS
+   D /trunk/t/RCS
+
+Oops, checked in all the RCS directories
+------------------------------------------------------------------------
+r10 | k | 2005-10-30 18:40:58 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   A /trunk/t/44.bz2
+   M /trunk/t/CHECKSUMS
+
+add support for bzip2
+------------------------------------------------------------------------
+r9 | k | 2005-10-30 18:23:33 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/t/CHECKSUMS
+
+refactored the new function add_digests out of the long loop
+------------------------------------------------------------------------
+r8 | k | 2005-10-30 17:59:43 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+want to sign the distro
+------------------------------------------------------------------------
+r7 | k | 2005-10-30 17:59:08 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/ChangeLog
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+   M /trunk/t/CHECKSUMS
+
+applied a patch by Steve Peters to support sha256
+------------------------------------------------------------------------
 r6 | k | 2005-10-30 15:02:00 +0100 (Sun, 30 Oct 2005) | 1 line
 Changed paths:
    M /trunk/ChangeLog
