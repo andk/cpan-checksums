@@ -70,7 +70,6 @@ setversion:
 	$(PERL) Makefile.PL --setversion
 
 README: Checksums.pm Makefile
-	chmod +w $@
 	pod2text Checksums.pm > $@
 
 chlog ::
