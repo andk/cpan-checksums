@@ -2,8 +2,8 @@ use ExtUtils::MakeMaker qw(:DEFAULT);
 my $Id = q$Id: Makefile.PL 3 2005-10-30 13:58:32Z k $;
 our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
 
+my $version_diff = 0; # we'll have to die if this becomes true
 {
-  my $version_diff = 0; # we'll have to die if this becomes true
   my $version_from = q(Checksums.pm);
 
   if ($ARGV[0] && $ARGV[0] eq "--setversion") {
@@ -27,7 +27,7 @@ our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
     die "Could not determine sv_from or sv_dot"
         unless $sv_from > 0 && $sv_dot > 0;
     if ($sv_dot > $sv_from) {
-      warn "setting some property to make a checkin of this file possible";
+      warn "setting property cpan:release to 'after_$sv_dot' to enable checkin";
       0==system(svn => "propset",
                 "cpan:release",
                 "after_$sv_dot",
@@ -43,7 +43,6 @@ our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
     exit unless $version_diff;
   }
 }
-
 WriteMakefile(
               'NAME'	=> 'CPAN::Checksums',
               'VERSION_FROM' => 'Checksums.pm',
@@ -63,6 +62,14 @@ WriteMakefile(
                          COMPRESS => 'gzip -9f'
                         },
              );
+
+if ($version_diff){
+  die "
+==> I had to update some \$VERSIONs <==
+==> Your Makefile has been rebuilt. <==
+==> Please rerun the make command.  <==
+";
+}
 
 sub MY::postamble {
   q{
