@@ -21,7 +21,7 @@ print "ok 1\n";
 # of the test code):
 
 my $ret = CPAN::Checksums::updatedir("t");
-print $ret == 1 ? "ok 2\n" : "# ret[$ret]\nnot ok 2\n";
+print $ret >= 1 ? "ok 2\n" : "# got ret[$ret] expected[>=1]\nnot ok 2\n";
 
 chmod 0644, "t/43";
 open F, ">t/43" or die;

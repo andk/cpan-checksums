@@ -115,6 +115,7 @@ sub updatedir ($) {
   }
   local $Data::Dumper::Indent = 1;
   local $Data::Dumper::Quotekeys = 1;
+  local $Data::Dumper::Sortkeys = 1;
   my $ddump = Data::Dumper->new([$dref],["cksum"])->Dump;
   my $is_signed = 0;
   my @ckfnstat = stat $ckfn;
