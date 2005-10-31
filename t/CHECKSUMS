@@ -1,31 +1,37 @@
-# CHECKSUMS file written on Sun Oct 30 18:18:35 2005 by CPAN::Checksums (v1.120)
+# CHECKSUMS file written on Mon Oct 31 06:46:00 2005 by CPAN::Checksums (v1.123)
 $cksum = {
-  '44.bz2' => {
-    'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
-    'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
-    'mtime' => '2005-10-30',
-    'md5' => 'b3c551bfbf1d15ce93b47346a11cc87a',
-    'md5-unbz2' => 'e760668b6273d38c832c153fde5725da',
-    'size' => '39'
-  },
   '42.gz' => {
-    'sha256-ungz' => '084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0',
-    'sha256' => '787e758a975d04560f6a9d4671646a48c4e9da4f40d4e102bc4562cd15c71ab5',
-    'mtime' => '2005-10-30',
-    'md5-ungz' => '50a2fabfdd276f573ff97ace8b11c5f4',
     'md5' => '915cdde7181ab542763969e063b7a9a9',
+    'md5-ungz' => '50a2fabfdd276f573ff97ace8b11c5f4',
+    'mtime' => '2005-10-30',
+    'sha256' => '787e758a975d04560f6a9d4671646a48c4e9da4f40d4e102bc4562cd15c71ab5',
+    'sha256-ungz' => '084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0',
     'size' => '26'
   },
-  'updatedir.t' => {
-    'sha256' => '2234a6c9d907abfc16aac77dd04f4ad0e29cbc832851a2c06e499c7fc96d9779',
-    'mtime' => '2005-10-30',
-    'md5' => '14c7bde8c9a86c3907305af67e8d15bb',
-    'size' => '1375'
-  },
   '43' => {
-    'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
-    'mtime' => '2005-10-30',
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
+    'mtime' => '2005-10-31',
+    'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => '3'
+  },
+  '44.bz2' => {
+    'md5' => 'b3c551bfbf1d15ce93b47346a11cc87a',
+    'md5-unbz2' => 'e760668b6273d38c832c153fde5725da',
+    'mtime' => '2005-10-30',
+    'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
+    'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
+    'size' => '39'
+  },
+  'updatedir.t' => {
+    'md5' => '14bb3b95b91412ebb025dc271b77fd2d',
+    'mtime' => '2005-10-30',
+    'sha256' => '2ae60c274dad3ac5d7021ffb39b571e3aa855bb3f631e5f364d1a621d35cbc47',
+    'size' => '1393'
+  },
+  'updatedir.t~' => {
+    'md5' => '14c7bde8c9a86c3907305af67e8d15bb',
+    'mtime' => '2005-10-30',
+    'sha256' => '2234a6c9d907abfc16aac77dd04f4ad0e29cbc832851a2c06e499c7fc96d9779',
+    'size' => '1375'
   }
 };
