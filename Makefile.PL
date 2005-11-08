@@ -48,6 +48,7 @@ WriteMakefile(
               'VERSION_FROM' => 'Checksums.pm',
               (MM->can("signature_target") ? (SIGN => 1) : ()),
               'PREREQ_PM' => {
+                              'Compress::Bzip2' => 0,
                               'Compress::Zlib' => 0,
                               'Data::Compare' => 0,
                               'Data::Dumper' => 0,
