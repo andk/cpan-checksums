@@ -151,7 +151,7 @@ sub updatedir ($) {
     $ddump .= "__END__\n";
   }
 
-  my $message = sprintf "# CHECKSUMS file written on %s by CPAN::Checksums (v%s)\n%s",
+  my $message = sprintf "# CHECKSUMS file written on %s GMT by CPAN::Checksums (v%s)\n%s",
       scalar gmtime, $VERSION, $ddump;
   print $fh $message;
   my $success = close $fh;
@@ -217,8 +217,8 @@ sub investigate ($$) {
             exists $new->{$dist}{$diff};
         next if $old->{$dist}{$diff} eq $new->{$dist}{$diff};
         $complain .=
-            scalar localtime().
-                ":\ndiffering old/new version of same file $dist:\n"
+            scalar gmtime().
+                " GMT:\ndiffering old/new version of same file $dist:\n"
                     unless $headersaid++;
         $complain .=
             qq{\t$diff "$old->{$dist}{$diff}" -> "$new->{$dist}{$diff}"\n}; #};
@@ -330,8 +330,8 @@ the given value.
 
 =head1 PREREQUISITES
 
-DirHandle, IO::File, Digest::MD5, Digest::SHA, Compress::Zlib, File::Spec,
-Data::Dumper, Data::Compare
+DirHandle, IO::File, Digest::MD5, Digest::SHA, Compress::Bzip2,
+Compress::Zlib, File::Spec, Data::Dumper, Data::Compare
 
 =head1 AUTHOR
 

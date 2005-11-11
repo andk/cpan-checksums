@@ -53,7 +53,7 @@ WriteMakefile(
                               'Data::Compare' => 0,
                               'Data::Dumper' => 0,
                               'Digest::MD5' => 0,
-                              'Digest::SHA1' => 0,
+                              'Digest::SHA' => 0,
                               'DirHandle' => 0,
                               'File::Spec' => 0,
                               'IO::File' => 0,
