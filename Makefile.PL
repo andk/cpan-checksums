@@ -98,3 +98,15 @@ sub MY::dist_ci {
 };
 }
 
+sub MY::dist_test {
+  return q{
+# if we depend on $(DISTVNAME).tar$(SUFFIX), then the rest of the
+# Makefile breaks our intent to NOT remake dist
+disttest :
+	rm -rf $(DISTVNAME)
+	tar xvzf $(DISTVNAME).tar$(SUFFIX)
+	cd $(DISTVNAME) && $(ABSPERLRUN) Makefile.PL
+	cd $(DISTVNAME) && $(MAKE) $(PASTHRU)
+	cd $(DISTVNAME) && $(MAKE) test $(PASTHRU)
+}
+}
