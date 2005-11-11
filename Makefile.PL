@@ -83,6 +83,12 @@ README: Checksums.pm Makefile
 chlog ::
 	LC_ALL=en_GB.utf8 svn log -v -r `svnversion . | perl -ne '/(?:\d+:)?(\d+)[SM]*$$/&&print $$1'`:1 > ChangeLog.svn
 
+release ::
+	perl -I../../CPAN/SVN/release-lib -S release $(DISTVNAME).tar$(SUFFIX)
+
+sign:
+	cpansign -s
+
 }
 }
 
