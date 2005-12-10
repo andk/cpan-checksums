@@ -1,0 +1,340 @@
+------------------------------------------------------------------------
+r39 | k | 2005-11-11 08:14:01 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_38
+------------------------------------------------------------------------
+r38 | k | 2005-11-11 08:13:00 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+new dist_test target
+------------------------------------------------------------------------
+r37 | k | 2005-11-11 08:10:31 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_36
+------------------------------------------------------------------------
+r36 | k | 2005-11-11 08:09:21 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+svn complains after make test that the CHECKSUMS file is not checked in; is svn right about that?
+------------------------------------------------------------------------
+r35 | k | 2005-11-11 08:06:45 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+add release target to Makefile
+------------------------------------------------------------------------
+r34 | k | 2005-11-11 06:02:17 +0100 (Fri, 11 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+
+dependencies; GMT
+------------------------------------------------------------------------
+r33 | k | 2005-11-08 12:34:00 +0100 (Tue, 08 Nov 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+blah
+------------------------------------------------------------------------
+r32 | k | 2005-10-31 08:18:36 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_31
+------------------------------------------------------------------------
+r31 | k | 2005-10-31 08:18:21 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/MANIFEST
+   M /trunk/Makefile.PL
+
+rename ChangeLog to ChangeLog.svn: do not like to set expectations to the other format
+------------------------------------------------------------------------
+r30 | k | 2005-10-31 08:07:51 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_29
+------------------------------------------------------------------------
+r29 | k | 2005-10-31 08:07:37 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+finally I discovered how version_diff was intended to work initially: after a forced checkin the make must die because it still only knows about the old version
+------------------------------------------------------------------------
+r28 | k | 2005-10-31 07:58:31 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_27
+------------------------------------------------------------------------
+r27 | k | 2005-10-31 07:58:14 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+we had an updatedir.t~ in the CHECKSUMS file, removed now
+------------------------------------------------------------------------
+r26 | k | 2005-10-31 07:54:26 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+   M /trunk/t/CHECKSUMS
+
+Touching the Makefile.PL caused irritating behaviour, will try without; we can add 1 instead of 1.1 now to the VERSION because we reach at greater than 1.018 which was the last release
+------------------------------------------------------------------------
+r25 | k | 2005-10-31 07:46:51 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_24
+------------------------------------------------------------------------
+r24 | k | 2005-10-31 07:46:23 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+the latest CHECKSUMS file after sorting
+------------------------------------------------------------------------
+r23 | k | 2005-10-31 07:45:28 +0100 (Mon, 31 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/t/updatedir.t
+
+sort the keys
+------------------------------------------------------------------------
+r22 | k | 2005-10-30 19:20:44 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_21
+------------------------------------------------------------------------
+r21 | k | 2005-10-30 19:19:33 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+last change of the reference file
+------------------------------------------------------------------------
+r20 | k | 2005-10-30 19:16:33 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_19
+------------------------------------------------------------------------
+r19 | k | 2005-10-30 19:16:17 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/MANIFEST
+
+is this the last RCS relict?
+------------------------------------------------------------------------
+r18 | k | 2005-10-30 19:13:58 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/tmp
+
+oh my god, how many unneeded files did I check in???
+------------------------------------------------------------------------
+r17 | k | 2005-10-30 19:11:18 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_16
+------------------------------------------------------------------------
+r16 | k | 2005-10-30 19:10:53 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+oops, there was a chmod still
+------------------------------------------------------------------------
+r15 | k | 2005-10-30 19:09:27 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/ChangeLog
+   D /trunk/README
+
+removing automatic files
+------------------------------------------------------------------------
+r14 | k | 2005-10-30 18:48:13 +0100 (Sun, 30 Oct 2005) | 2 lines
+Changed paths:
+   M /trunk/ChangeLog
+   M /trunk/README
+
+just silencing svn
+
+------------------------------------------------------------------------
+r13 | k | 2005-10-30 18:46:03 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_12
+------------------------------------------------------------------------
+r12 | k | 2005-10-30 18:45:44 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+
+tests rewrote comment in CHECKSUMS file
+------------------------------------------------------------------------
+r11 | k | 2005-10-30 18:43:49 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/RCS
+   M /trunk/t/CHECKSUMS
+   D /trunk/t/RCS
+
+Oops, checked in all the RCS directories
+------------------------------------------------------------------------
+r10 | k | 2005-10-30 18:40:58 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   A /trunk/t/44.bz2
+   M /trunk/t/CHECKSUMS
+
+add support for bzip2
+------------------------------------------------------------------------
+r9 | k | 2005-10-30 18:23:33 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/t/CHECKSUMS
+
+refactored the new function add_digests out of the long loop
+------------------------------------------------------------------------
+r8 | k | 2005-10-30 17:59:43 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+want to sign the distro
+------------------------------------------------------------------------
+r7 | k | 2005-10-30 17:59:08 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/ChangeLog
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+   M /trunk/t/CHECKSUMS
+
+applied a patch by Steve Peters to support sha256
+------------------------------------------------------------------------
+r6 | k | 2005-10-30 15:02:00 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/ChangeLog
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+
+Rev property!
+------------------------------------------------------------------------
+r5 | k | 2005-10-30 15:00:01 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/blibdirs.ts
+   D /trunk/pm_to_blib
+   D /trunk/pm_to_blib.ts
+
+remove other runtime files
+------------------------------------------------------------------------
+r4 | k | 2005-10-30 14:59:08 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/Makefile
+
+remove |Makefile
+------------------------------------------------------------------------
+r3 | k | 2005-10-30 14:58:32 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+
+more SVN preparations
+------------------------------------------------------------------------
+r2 | k | 2005-10-30 14:49:50 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   D /trunk/CPAN-Checksums-1.0.tar.gz
+   D /trunk/CPAN-Checksums-1.003.tar.gz
+   D /trunk/CPAN-Checksums-1.004.tar.gz
+   D /trunk/CPAN-Checksums-1.006.tar.gz
+   D /trunk/CPAN-Checksums-1.007.tar.gz
+   D /trunk/CPAN-Checksums-1.008.tar.gz
+   D /trunk/CPAN-Checksums-1.009.tar.gz
+   D /trunk/CPAN-Checksums-1.011.tar.gz
+   D /trunk/CPAN-Checksums-1.012.tar.gz
+   D /trunk/CPAN-Checksums-1.014.tar.gz
+   D /trunk/CPAN-Checksums-1.015.tar.gz
+   D /trunk/CPAN-Checksums-1.016.tar.gz
+   D /trunk/CPAN-Checksums-1.018.tar.gz
+   A /trunk/ChangeLog.old
+   M /trunk/MANIFEST
+   M /trunk/Makefile
+   M /trunk/Makefile.PL
+   M /trunk/README
+   D /trunk/blib
+
+Starting to use SVN
+------------------------------------------------------------------------
+r1 | k | 2005-10-30 14:07:53 +0100 (Sun, 30 Oct 2005) | 1 line
+Changed paths:
+   A /branches
+   A /tags
+   A /trunk
+   A /trunk/CPAN-Checksums-1.0.tar.gz
+   A /trunk/CPAN-Checksums-1.003.tar.gz
+   A /trunk/CPAN-Checksums-1.004.tar.gz
+   A /trunk/CPAN-Checksums-1.006.tar.gz
+   A /trunk/CPAN-Checksums-1.007.tar.gz
+   A /trunk/CPAN-Checksums-1.008.tar.gz
+   A /trunk/CPAN-Checksums-1.009.tar.gz
+   A /trunk/CPAN-Checksums-1.011.tar.gz
+   A /trunk/CPAN-Checksums-1.012.tar.gz
+   A /trunk/CPAN-Checksums-1.014.tar.gz
+   A /trunk/CPAN-Checksums-1.015.tar.gz
+   A /trunk/CPAN-Checksums-1.016.tar.gz
+   A /trunk/CPAN-Checksums-1.018.tar.gz
+   A /trunk/ChangeLog
+   A /trunk/Checksums.pm
+   A /trunk/MANIFEST
+   A /trunk/META.yml
+   A /trunk/Makefile
+   A /trunk/Makefile.PL
+   A /trunk/RCS
+   A /trunk/RCS/ChangeLog,v
+   A /trunk/RCS/Checksums.pm,v
+   A /trunk/RCS/MANIFEST,v
+   A /trunk/RCS/Makefile.PL,v
+   A /trunk/RCS/README,v
+   A /trunk/README
+   A /trunk/blib
+   A /trunk/blib/arch
+   A /trunk/blib/arch/auto
+   A /trunk/blib/arch/auto/CPAN
+   A /trunk/blib/arch/auto/CPAN/Checksums
+   A /trunk/blib/arch/auto/CPAN/Checksums/.exists
+   A /trunk/blib/bin
+   A /trunk/blib/lib
+   A /trunk/blib/lib/CPAN
+   A /trunk/blib/lib/CPAN/.exists
+   A /trunk/blib/lib/CPAN/Checksums.pm
+   A /trunk/blib/lib/auto
+   A /trunk/blib/lib/auto/CPAN
+   A /trunk/blib/lib/auto/CPAN/Checksums
+   A /trunk/blib/lib/auto/CPAN/Checksums/.exists
+   A /trunk/blib/man1
+   A /trunk/blib/man3
+   A /trunk/blib/man3/.exists
+   A /trunk/blib/man3/CPAN::Checksums.3
+   A /trunk/blib/man3/CPAN::Checksums.3pm
+   A /trunk/blib/script
+   A /trunk/blibdirs.ts
+   A /trunk/pm_to_blib
+   A /trunk/pm_to_blib.ts
+   A /trunk/t
+   A /trunk/t/42.gz
+   A /trunk/t/43
+   A /trunk/t/CHECKSUMS
+   A /trunk/t/RCS
+   A /trunk/t/RCS/42.gz,v
+   A /trunk/t/RCS/43,v
+   A /trunk/t/RCS/CHECKSUMS,v
+   A /trunk/t/RCS/ignore-me
+   A /trunk/t/RCS/updatedir.t,v
+   A /trunk/t/updatedir.t
+   A /trunk/tmp
+   A /trunk/tmp/t1
+   A /trunk/tmp/t2
+
+initial import
+------------------------------------------------------------------------
