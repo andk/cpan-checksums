@@ -1,30 +1,36 @@
-# CHECKSUMS file written on Fri Nov 11 07:07:14 2005 GMT by CPAN::Checksums (v1.034)
+# CHECKSUMS file written on Sat Dec 10 05:28:23 2005 GMT by CPAN::Checksums (v1.039)
 $cksum = {
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
     'md5-ungz' => '50a2fabfdd276f573ff97ace8b11c5f4',
-    'mtime' => '2005-10-30',
+    'mtime' => '2005-12-10',
     'sha256' => '787e758a975d04560f6a9d4671646a48c4e9da4f40d4e102bc4562cd15c71ab5',
     'sha256-ungz' => '084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0',
     'size' => '26'
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2005-11-11',
+    'mtime' => '2005-12-10',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => '3'
   },
   '44.bz2' => {
     'md5' => 'b3c551bfbf1d15ce93b47346a11cc87a',
     'md5-unbz2' => 'e760668b6273d38c832c153fde5725da',
-    'mtime' => '2005-10-30',
+    'mtime' => '2005-12-10',
     'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
     'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
     'size' => '39'
   },
   'updatedir.t' => {
+    'md5' => 'b417c42cf46c9a3064cc77f1850208a3',
+    'mtime' => '2005-12-10',
+    'sha256' => 'd5f635b52277f7b1dd71aa5fd480d7eadf6e65476c04aafd11dd90dc70f9d3c4',
+    'size' => '785'
+  },
+  'updatedir.t~' => {
     'md5' => '14bb3b95b91412ebb025dc271b77fd2d',
-    'mtime' => '2005-10-30',
+    'mtime' => '2005-12-10',
     'sha256' => '2ae60c274dad3ac5d7021ffb39b571e3aa855bb3f631e5f364d1a621d35cbc47',
     'size' => '1393'
   }
