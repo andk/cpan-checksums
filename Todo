@@ -1,0 +1,14 @@
+2005-12-11  Andreas Koenig  <andk@cpan.org>
+
+	* running updateddir on all 4012 checksummed directories on CPAN takes a
+	hell lot of time (over an hour) and slows other proceses down, so I
+	wonder where the time is spent. If it were ungzip, we could lax our
+	interest to only computing it for files that have a new ungzip checksum
+	or so.
+
+	Local Variables:
+	mode: change-log
+	change-log-default-name: "Todo"
+	tab-width: 2
+	left-margin: 2
+	End:

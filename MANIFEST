@@ -4,6 +4,7 @@ Checksums.pm
 MANIFEST
 Makefile.PL
 README
+Todo
 t/42.gz
 t/43
 t/CHECKSUMS
