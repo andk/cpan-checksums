@@ -1,11 +1,17 @@
 2005-12-11  Andreas Koenig  <andk@cpan.org>
 
 	* running updateddir on all 4012 checksummed directories on CPAN takes a
-	hell lot of time (over an hour) and slows other proceses down, so I
+	hell lot of time (over an hour) and slows other processes down, so I
 	wonder where the time is spent. If it were ungzip, we could lax our
 	interest to only computing it for files that have a new ungzip checksum
-	or so.
+	or so ($SKIP_UNGZ_IF_GZ_UNCHANGED or so).
 
+	But if we can make sure that updatedir is always run after a change
+	(both upload and delete), we can run the whole find/update thing just
+	once a week. For now I have reduced it to every 6 hours so I can
+	investigate changes better.
+
+	#########################################################################
 	Local Variables:
 	mode: change-log
 	change-log-default-name: "Todo"
