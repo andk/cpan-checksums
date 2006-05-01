@@ -1,0 +1,10 @@
+ChangeLog.old
+DISTS
+MANIFEST.bak
+Makefile.old
+\.lwpcookies
+\.releaserc
+\.svn
+blib/
+pm_to_blib
+~$

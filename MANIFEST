@@ -1,11 +1,16 @@
 ChangeLog.svn
-ChangeLog.old
 Checksums.pm
 MANIFEST
+MANIFEST.SKIP
+META.yml
+Makefile
 Makefile.PL
 README
+SIGNATURE
 Todo
 t/42.gz
 t/43
+t/44.bz2
 t/CHECKSUMS
+t/pod.t
 t/updatedir.t

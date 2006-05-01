@@ -128,6 +128,7 @@ sub updatedir ($) {
       $cksum .= $_;
     }
     close $fh;
+    local our $DIRNAME = $dirname;
     if ( !!$SIGNING_KEY == !!$is_signed ) { # either both or neither
       if (!$MIN_MTIME_CHECKSUMS || $ckfnstat[9] > $MIN_MTIME_CHECKSUMS ) {
         # recent enough
@@ -235,7 +236,8 @@ sub makehashref ($) {
     my($comp) = Safe->new("CPAN::Checksums::reval");
     my $cksum; # used by Data::Dumper
     $_ = $comp->reval($_) || {};
-    die "Caught $@" if $@;
+    our $DIRNAME;
+    die "CPAN::Checksums: Caught error[$@] while checking $DIRNAME" if $@;
   }
   $_;
 }
