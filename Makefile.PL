@@ -78,7 +78,7 @@ setversion:
 	$(PERL) Makefile.PL --setversion
 
 README: Checksums.pm Makefile
-	pod2text Checksums.pm > $@
+	$(PERL) -MPod::Text -e 'Pod::Text->new->parse_from_file(\*ARGV)' Checksums.pm > $@
 
 chlog ::
 	LC_ALL=en_GB.utf8 svn log -v -r `svnversion . | perl -ne '/(?:\d+:)?(\d+)[SM]*$$/&&print $$1'`:1 > ChangeLog.svn
