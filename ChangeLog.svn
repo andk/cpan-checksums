@@ -1,4 +1,66 @@
 ------------------------------------------------------------------------
+r48 | k | 2006-05-01 15:30:02 +0200 (Mon, 01 May 2006) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+
+Property set for release after_47
+------------------------------------------------------------------------
+r47 | k | 2006-05-01 15:29:57 +0200 (Mon, 01 May 2006) | 1 line
+Changed paths:
+   M /trunk/Makefile.PL
+
+prepare next release
+------------------------------------------------------------------------
+r46 | k | 2006-05-01 15:27:27 +0200 (Mon, 01 May 2006) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/MANIFEST
+   A /trunk/MANIFEST.SKIP
+   M /trunk/t/CHECKSUMS
+
+better error handling during updatedir
+------------------------------------------------------------------------
+r45 | k | 2005-12-11 14:42:54 +0100 (Sun, 11 Dec 2005) | 1 line
+Changed paths:
+   M /trunk/Todo
+
+blah
+------------------------------------------------------------------------
+r44 | k | 2005-12-11 13:51:43 +0100 (Sun, 11 Dec 2005) | 1 line
+Changed paths:
+   M /trunk/MANIFEST
+   A /trunk/Todo
+
+add a Todo file
+------------------------------------------------------------------------
+r43 | k | 2005-12-11 07:39:35 +0100 (Sun, 11 Dec 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+   M /trunk/t/updatedir.t
+
+blah
+------------------------------------------------------------------------
+r42 | k | 2005-12-10 06:33:41 +0100 (Sat, 10 Dec 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+   A /trunk/t/pod.t
+
+add the standard pot.t
+------------------------------------------------------------------------
+r41 | k | 2005-12-10 06:28:57 +0100 (Sat, 10 Dec 2005) | 1 line
+Changed paths:
+   M /trunk/t/CHECKSUMS
+   M /trunk/t/updatedir.t
+
+witch testscript to use Test::More
+------------------------------------------------------------------------
+r40 | k | 2005-12-10 06:04:40 +0100 (Sat, 10 Dec 2005) | 2 lines
+Changed paths:
+   A /trunk/ChangeLog.svn
+
+adding Chagelog.svn
+
+------------------------------------------------------------------------
 r39 | k | 2005-11-11 08:14:01 +0100 (Fri, 11 Nov 2005) | 1 line
 Changed paths:
    M /trunk/Checksums.pm
