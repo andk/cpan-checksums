@@ -56,6 +56,7 @@ WriteMakefile(
                               'Digest::SHA' => 0,
                               'DirHandle' => 0,
                               'File::Spec' => 0,
+                              'File::Temp' => 0,
                               'IO::File' => 0,
                              },
               'dist' => {

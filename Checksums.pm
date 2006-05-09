@@ -24,6 +24,7 @@ use Digest::MD5 ();
 use Compress::Bzip2();
 use Compress::Zlib ();
 use File::Spec ();
+use File::Temp;
 use Data::Dumper ();
 use Data::Compare ();
 use Digest::SHA ();
@@ -141,14 +142,21 @@ sub updatedir ($) {
       warn $report if $report;
     }
   }
-  chmod 0644, $ckfn or die "Couldn't chmod to 0644 for $ckfn\: $!" if -f $ckfn;
-  open $fh, ">$ckfn\0" or die "Couldn't open >$ckfn\: $!";
+  my $ft = File::Temp->new(
+                           DIR => $dirname,
+                           TEMPLATE => "CHECKSUMS.XXXX",
+                           CLEANUP => 0,
+                          ) or die;
+  my $tckfn = $ft->filename;
+  close $ft;
+  open $fh, ">$tckfn\0" or die "Couldn't open >$tckfn\: $!";
 
   local $\;
   if ($SIGNING_KEY) {
     print $fh "0&&<<''; # this PGP-signed message is also valid perl\n";
     close $fh;
-    open $fh, "| $SIGNING_PROGRAM $SIGNING_KEY >> $ckfn" or die "Could not call gpg: $!";
+    open $fh, "| $SIGNING_PROGRAM $SIGNING_KEY >> $tckfn"
+        or die "Could not call gpg: $!";
     $ddump .= "__END__\n";
   }
 
@@ -158,11 +166,13 @@ sub updatedir ($) {
   my $success = close $fh;
   if ($SIGNING_KEY && !$success) {
     warn "Couldn't run '$SIGNING_PROGRAM $SIGNING_KEY'!
-Writing to $ckfn directly";
-    open $fh, ">$ckfn\0" or die "Couldn't open >$ckfn\: $!";
+Writing to $tckfn directly";
+    open $fh, ">$tckfn\0" or die "Couldn't open >$tckfn\: $!";
     print $fh $message;
-    close $fh or warn "Couldn't close $ckfn: $!";
+    close $fh or warn "Couldn't close $tckfn: $!";
   }
+  chmod 0644, $ckfn or die "Couldn't chmod to 0644 for $ckfn\: $!" if -f $ckfn;
+  rename $tckfn, $ckfn or die "Could not rename: $!";
   chmod 0444, $ckfn or die "Couldn't chmod to 0444 for $ckfn\: $!";
   return 2;
 }
@@ -333,7 +343,13 @@ the given value.
 =head1 PREREQUISITES
 
 DirHandle, IO::File, Digest::MD5, Digest::SHA, Compress::Bzip2,
-Compress::Zlib, File::Spec, Data::Dumper, Data::Compare
+Compress::Zlib, File::Spec, Data::Dumper, Data::Compare, File::Temp
+
+=head1 BUGS
+
+If updatedir is interrupted, it may leave a temporary file lying
+around. These files have the File::Temp template CHECKSUMS.XXXX and
+should be harvested by a cronjob.
 
 =head1 AUTHOR
 
