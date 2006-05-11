@@ -1,4 +1,18 @@
 ------------------------------------------------------------------------
+r50 | k | 2006-05-09 05:21:51 +0200 (Tue, 09 May 2006) | 1 line
+Changed paths:
+   M /trunk/Checksums.pm
+   M /trunk/Makefile.PL
+   M /trunk/t/CHECKSUMS
+
+guarantee atomicity: concurrent writes are consistent
+------------------------------------------------------------------------
+r49 | k | 2006-05-02 13:59:40 +0200 (Tue, 02 May 2006) | 1 line
+Changed paths:
+   M /trunk/ChangeLog.svn
+
+blah
+------------------------------------------------------------------------
 r48 | k | 2006-05-01 15:30:02 +0200 (Mon, 01 May 2006) | 1 line
 Changed paths:
    M /trunk/Checksums.pm
