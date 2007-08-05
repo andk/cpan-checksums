@@ -6,8 +6,21 @@ my $version_diff = 0; # we'll have to die if this becomes true
 {
   my $version_from = q(Checksums.pm);
 
+  {
+    local $^W;
+    $ExtUtils::MakeMaker::VERSION = eval $ExtUtils::MakeMaker::VERSION;
+    warn "Your MakeMaker is a bit dated[$ExtUtils::MakeMaker::VERSION].\nYou should get a new one\n"
+        if $ExtUtils::MakeMaker::VERSION < 6.0;
+  }
+
   if ($ARGV[0] && $ARGV[0] eq "--setversion") {
+    die "Your perl is a bit dated[$]].\nDo not make a release with it\n" if $] < 5.008;
+    die "Your MakeMaker is a bit dated[$ExtUtils::MakeMaker::VERSION].\nDo not make a release with it\n"
+        if $ExtUtils::MakeMaker::VERSION < 6.3004;
+    die "Your MakeMaker doesn't do the sign woodoo" unless
+        MM->can("signature_target");
     shift @ARGV;
+    local $ENV{LANG} = "C";
     open my $st, "svn st -u|" or die;
     my $dirty = 0;
     while (<$st>) {
@@ -59,6 +72,9 @@ WriteMakefile(
                               'File::Temp' => 0,
                               'IO::File' => 0,
                              },
+              ($ExtUtils::MakeMaker::VERSION >= 6.3002 ?
+               (LICENSE      => "perl") : (),
+              ),
               'dist' => {
                          DIST_DEFAULT => 'Makefile setversion README all chlog tardist',
                          COMPRESS => 'gzip -9f'

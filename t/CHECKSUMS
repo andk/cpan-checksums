@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sun Aug  5 09:51:16 2007 GMT by CPAN::Checksums (v1.052)
+# CHECKSUMS file written on Sun Aug  5 10:02:52 2007 GMT by CPAN::Checksums (v1.053)
 $cksum = {
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
