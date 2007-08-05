@@ -113,22 +113,28 @@ sub _dir_to_dref {
   $dref;
 }
 
-sub updatedir ($) {
-  my($dirname) = @_;
-  my $dref = _dir_to_dref($dirname);
-  my $ckfn = File::Spec->catfile($dirname, "CHECKSUMS"); # checksum-file-name
+sub _read_old_ddump {
+  my($ckfn) = @_;
   my $is_signed = 0;
   my($fh) = new IO::File;
-  my $cksum = "";
+  my $old_ddump = "";
   if ($fh->open($ckfn)) {
     local $/ = "\n";
     while (<$fh>) {
       next if /^\#/;
       $is_signed = 1 if /SIGNED MESSAGE/;
-      $cksum .= $_;
+      $old_ddump .= $_;
     }
     close $fh;
   }
+  return($old_ddump,$is_signed);
+}
+
+sub updatedir ($) {
+  my($dirname) = @_;
+  my $dref = _dir_to_dref($dirname);
+  my $ckfn = File::Spec->catfile($dirname, "CHECKSUMS"); # checksum-file-name
+  my($old_ddump,$is_signed) = _read_old_ddump($ckfn);
   unless (%$dref) { # no files to checksum
     unlink $ckfn or die "Couldn't unlink '$ckfn': $!" if -f $ckfn;
     return 1;
@@ -138,17 +144,17 @@ sub updatedir ($) {
   local $Data::Dumper::Sortkeys = 1;
   my $ddump = Data::Dumper->new([$dref],["cksum"])->Dump;
   my @ckfnstat = stat $ckfn;
-  if ($cksum) {
+  if ($old_ddump) {
     local our $DIRNAME = $dirname;
     if ( !!$SIGNING_KEY == !!$is_signed ) { # either both or neither
       if (!$MIN_MTIME_CHECKSUMS || $ckfnstat[9] > $MIN_MTIME_CHECKSUMS ) {
         # recent enough
-        return 1 if $cksum eq $ddump;
-        return 1 if ckcmp($cksum,$dref);
+        return 1 if $old_ddump eq $ddump;
+        return 1 if ckcmp($old_ddump,$dref);
       }
     }
     if ($CAUTION) {
-      my $report = investigate($cksum,$dref);
+      my $report = investigate($old_ddump,$dref);
       warn $report if $report;
     }
   }
@@ -159,6 +165,7 @@ sub updatedir ($) {
                           ) or die;
   my $tckfn = $ft->filename;
   close $ft;
+  my($fh) = new IO::File;
   open $fh, ">$tckfn\0" or die "Couldn't open >$tckfn\: $!";
 
   local $\;
