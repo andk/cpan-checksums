@@ -6,7 +6,6 @@ eval "use Test::Pod::Coverage 0.18"; # 0.15 was misbehaving according to David C
 plan skip_all => "Test::Pod::Coverage 0.18 required for testing pod coverage" if $@;
 plan tests => 1;
 my $trustme = { trustme => [ qw{
-                                add_digests
                                 ckcmp
                                 investigate
                                 makehashref

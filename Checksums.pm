@@ -30,7 +30,7 @@ use Data::Compare ();
 use Digest::SHA ();
 
 sub _dir_to_dref {
-  my($dirname) = @_;
+  my($dirname,$old_dref) = @_;
   my($dref) = {};
   my($dh)= DirHandle->new;
   my($fh) = new IO::File;
@@ -103,9 +103,23 @@ sub _dir_to_dref {
       $gmtime[4]++;
       $gmtime[5]+=1900;
       $dref->{$de}{mtime} = sprintf "%04d-%02d-%02d", @gmtime[5,4,3];
-
-      add_digests($de,$dref,"Digest::MD5",[],"md5",$fh,$abs);
-      add_digests($de,$dref,"Digest::SHA",[256],"sha256",$fh,$abs);
+      _add_digests($de,$dref,"Digest::SHA",[256],"sha256",$abs,$old_dref);
+      my $can_reuse_old_md5 = 1;
+    COMPARE: for my $param (qw(size mtime sha256)) {
+        if (!exists $old_dref->{$de}{$param} ||
+            $dref->{$de}{$param} ne $old_dref->{$de}{$param}) {
+          $can_reuse_old_md5 = 0;
+          last COMPARE;
+        }
+      }
+      if ( $can_reuse_old_md5 ) {
+        for my $param (qw(md5 md5-ungz md5-unbz2)) {
+          next unless exists $old_dref->{$de}{$param};
+          $dref->{$de}{$param} = $old_dref->{$de}{$param};
+        }
+      } else {
+        _add_digests($de,$dref,"Digest::MD5",[],"md5",$abs,$old_dref);
+      }
 
     } # ! -d
   }
@@ -132,10 +146,10 @@ sub _read_old_ddump {
 
 sub updatedir ($) {
   my($dirname) = @_;
-  my $dref = _dir_to_dref($dirname);
   my $ckfn = File::Spec->catfile($dirname, "CHECKSUMS"); # checksum-file-name
   my($old_ddump,$is_signed) = _read_old_ddump($ckfn);
   my($old_dref) = makehashref($old_ddump);
+  my $dref = _dir_to_dref($dirname,$old_dref);
   unless (%$dref) { # no files to checksum
     unlink $ckfn or die "Couldn't unlink '$ckfn': $!" if -f $ckfn;
     return 1;
@@ -195,8 +209,9 @@ Writing to $tckfn directly";
   return 2;
 }
 
-sub add_digests ($$$$$$$) {
-  my($de,$dref,$module,$constructor_args,$keyname,$fh,$abs) = @_;
+sub _add_digests ($$$$$$$) {
+  my($de,$dref,$module,$constructor_args,$keyname,$abs,$old_dref) = @_;
+  my($fh) = new IO::File;
   my $dig = $module->new(@$constructor_args);
   $fh->open("$abs\0") or die "Couldn't open $abs: $!";
   $dig->addfile($fh);

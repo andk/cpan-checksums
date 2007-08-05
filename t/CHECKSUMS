@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sun Aug  5 10:54:26 2007 GMT by CPAN::Checksums (v1.055)
+# CHECKSUMS file written on Sun Aug  5 11:21:30 2007 GMT by CPAN::Checksums (v1.057)
 $cksum = {
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
@@ -23,10 +23,10 @@ $cksum = {
     'size' => 39
   },
   '52podcover.t' => {
-    'md5' => '10bd89795219ea8ed743f68932e36ef8',
+    'md5' => '9845f6c5f049d637c92ae34e67328c77',
     'mtime' => '2007-08-05',
-    'sha256' => 'f4c7a5a7e71ba83af14021941ef52c7f6f0270d43829cf908787480e0274b5e2',
-    'size' => 611
+    'sha256' => '558d9083fe9dfa6aa66806caf4545bee35f2cac36592627aeed3b8cf0ca4fdf2',
+    'size' => 567
   },
   '52podcover.t~' => {
     'md5' => '5c5f7bfdc5e3f240ef1533e5f7b3fd43',
