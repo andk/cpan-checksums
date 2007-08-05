@@ -221,6 +221,13 @@ sub _add_digests ($$$$$$$) {
   $dig = $module->new(@$constructor_args);
   if ($de =~ /\.gz$/) {
     my($buffer, $zip);
+    if (exists $old_dref->{$de}{$keyname} &&
+        $dref->{$de}{$keyname} eq $old_dref->{$de}{$keyname} &&
+        exists $old_dref->{$de}{"$keyname-ungz"}
+       ) {
+      $dref->{$de}{"$keyname-ungz"} = $old_dref->{$de}{"$keyname-ungz"};
+      return;
+    }
     if ($zip  = Compress::Zlib::gzopen($abs, "rb")) {
       $dig->add($buffer)
           while $zip->gzread($buffer) > 0;
@@ -229,6 +236,13 @@ sub _add_digests ($$$$$$$) {
     }
   } elsif ($de =~ /\.bz2$/) {
     my($buffer, $zip);
+    if (exists $old_dref->{$de}{$keyname} &&
+        $dref->{$de}{$keyname} eq $old_dref->{$de}{$keyname} &&
+        exists $old_dref->{$de}{"$keyname-unbz2"}
+       ) {
+      $dref->{$de}{"$keyname-unbz2"} = $old_dref->{$de}{"$keyname-unbz2"};
+      return;
+    }
     if ($zip  = Compress::Bzip2::bzopen($abs, "rb")) {
       $dig->add($buffer)
           while $zip->bzread($buffer) > 0;
