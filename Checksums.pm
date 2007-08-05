@@ -258,7 +258,7 @@ __END__
 
 =head1 NAME
 
-CPAN::Checksums - Write a CHECKSUMS file for a directory as on CPAN
+CPAN::Checksums - Write a C<CHECKSUMS> file for a directory as on CPAN
 
 =head1 SYNOPSIS
 
@@ -275,11 +275,17 @@ $TRY_SHORTNAME to a true value.
 
 =head1 DESCRIPTION
 
-updatedir takes a directory name as argument and writes a typical
-CHECKSUMS file in that directory as used on CPAN unless a previously
-written CHECKSUMS file is there that is still valid. Returns 2 if a
-new CHECKSUMS file has been written, 1 if a valid CHECKSUMS file is
+=over 2
+
+=item $success = updatedir($dir)
+
+C<updatedir()> takes a directory name as argument and writes a typical
+C<CHECKSUMS> file in that directory as used on CPAN unless a previously
+written C<CHECKSUMS> file is there that is still valid. Returns 2 if a
+new C<CHECKSUMS> file has been written, 1 if a valid C<CHECKSUMS> file is
 already there, otherwise dies.
+
+=back
 
 =head2 Global Variables in package CPAN::Checksums
 
@@ -289,7 +295,7 @@ already there, otherwise dies.
 
 If the global variable $IGNORE_MATCH is set, then all files matching
 this expression will be completely ignored and will not be included in
-the CPAN CHECKSUMS files. Per default this variable is set to
+the CPAN C<CHECKSUMS> files. Per default this variable is set to
 
     qr{(?i-xsm:readme$)}
 
@@ -310,10 +316,10 @@ taken and then give up.
 
 =item $SIGNING_KEY
 
-Setting the global variable $SIGNING_KEY makes the generated CHECKSUMS
+Setting the global variable $SIGNING_KEY makes the generated C<CHECKSUMS>
 file to be clear-signed by the command specified in $SIGNING_PROGRAM
 (defaults to C<gpg --clearsign --default-key >), passing the signing
-key as an extra argument.  The resulting CHECKSUMS file should look like:
+key as an extra argument.  The resulting C<CHECKSUMS> file should look like:
 
     0&&<<''; # this PGP-signed message is also valid perl
     -----BEGIN PGP SIGNED MESSAGE-----
@@ -348,7 +354,7 @@ Compress::Zlib, File::Spec, Data::Dumper, Data::Compare, File::Temp
 =head1 BUGS
 
 If updatedir is interrupted, it may leave a temporary file lying
-around. These files have the File::Temp template CHECKSUMS.XXXX and
+around. These files have the File::Temp template C<CHECKSUMS.XXXX> and
 should be harvested by a cronjob.
 
 =head1 AUTHOR
