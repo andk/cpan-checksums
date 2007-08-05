@@ -135,6 +135,7 @@ sub updatedir ($) {
   my $dref = _dir_to_dref($dirname);
   my $ckfn = File::Spec->catfile($dirname, "CHECKSUMS"); # checksum-file-name
   my($old_ddump,$is_signed) = _read_old_ddump($ckfn);
+  my($old_dref) = makehashref($old_ddump);
   unless (%$dref) { # no files to checksum
     unlink $ckfn or die "Couldn't unlink '$ckfn': $!" if -f $ckfn;
     return 1;
@@ -150,11 +151,11 @@ sub updatedir ($) {
       if (!$MIN_MTIME_CHECKSUMS || $ckfnstat[9] > $MIN_MTIME_CHECKSUMS ) {
         # recent enough
         return 1 if $old_ddump eq $ddump;
-        return 1 if ckcmp($old_ddump,$dref);
+        return 1 if ckcmp($old_dref,$dref);
       }
     }
     if ($CAUTION) {
-      my $report = investigate($old_ddump,$dref);
+      my $report = investigate($old_dref,$dref);
       warn $report if $report;
     }
   }
