@@ -29,13 +29,13 @@ use Data::Dumper ();
 use Data::Compare ();
 use Digest::SHA ();
 
-sub updatedir ($) {
+sub _dir_to_dref {
   my($dirname) = @_;
-  my $dref = {};
-  my(%shortnameseen,@p);
+  my($dref) = {};
   my($dh)= DirHandle->new;
   my($fh) = new IO::File;
   $dh->open($dirname) or die "Couldn't opendir $dirname\: $!";
+  my(%shortnameseen);
  DIRENT: for my $de ($dh->read) {
     next if $de =~ /^\./;
     next if substr($de,0,9) eq "CHECKSUMS";
@@ -53,6 +53,7 @@ sub updatedir ($) {
       my $suffix;
       ($suffix = $shortname) =~ s/.*\.//;
       substr($suffix,3) = "" if length($suffix) > 3;
+      my @p;
       if ($shortname =~ /\-/) {
         @p = $shortname =~ /(.{1,16})-.*?([\d\.]{2,8})/;
       } else {
@@ -109,19 +110,17 @@ sub updatedir ($) {
     } # ! -d
   }
   $dh->close;
+  $dref;
+}
+
+sub updatedir ($) {
+  my($dirname) = @_;
+  my $dref = _dir_to_dref($dirname);
   my $ckfn = File::Spec->catfile($dirname, "CHECKSUMS"); # checksum-file-name
-  unless (%$dref) { # no files to checksum
-    unlink $ckfn or die "Couldn't unlink $ckfn: $!" if -f $ckfn;
-    return 1;
-  }
-  local $Data::Dumper::Indent = 1;
-  local $Data::Dumper::Quotekeys = 1;
-  local $Data::Dumper::Sortkeys = 1;
-  my $ddump = Data::Dumper->new([$dref],["cksum"])->Dump;
   my $is_signed = 0;
-  my @ckfnstat = stat $ckfn;
+  my($fh) = new IO::File;
+  my $cksum = "";
   if ($fh->open($ckfn)) {
-    my $cksum = "";
     local $/ = "\n";
     while (<$fh>) {
       next if /^\#/;
@@ -129,6 +128,17 @@ sub updatedir ($) {
       $cksum .= $_;
     }
     close $fh;
+  }
+  unless (%$dref) { # no files to checksum
+    unlink $ckfn or die "Couldn't unlink '$ckfn': $!" if -f $ckfn;
+    return 1;
+  }
+  local $Data::Dumper::Indent = 1;
+  local $Data::Dumper::Quotekeys = 1;
+  local $Data::Dumper::Sortkeys = 1;
+  my $ddump = Data::Dumper->new([$dref],["cksum"])->Dump;
+  my @ckfnstat = stat $ckfn;
+  if ($cksum) {
     local our $DIRNAME = $dirname;
     if ( !!$SIGNING_KEY == !!$is_signed ) { # either both or neither
       if (!$MIN_MTIME_CHECKSUMS || $ckfnstat[9] > $MIN_MTIME_CHECKSUMS ) {
