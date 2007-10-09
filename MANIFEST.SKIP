@@ -2,9 +2,11 @@ ChangeLog.old
 DISTS
 MANIFEST.bak
 Makefile.old
+^Makefile$
 \.lwpcookies
 \.releaserc
-\.svn
+\.svn/
 blib/
 pm_to_blib
 ~$
+\.tar\.gz$

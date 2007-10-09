@@ -1,16 +1,24 @@
 package CPAN::Checksums;
 
 use strict;
-use vars qw($VERSION $CAUTION $TRY_SHORTNAME
-            $SIGNING_PROGRAM $SIGNING_KEY
-            $MIN_MTIME_CHECKSUMS $IGNORE_MATCH
-            @ISA @EXPORT_OK);
+use vars qw(
+            $CAUTION
+            $DIRNAME
+            $IGNORE_MATCH
+            $MIN_MTIME_CHECKSUMS
+            $SIGNING_KEY
+            $SIGNING_PROGRAM
+            $TRY_SHORTNAME
+            $VERSION
+            @EXPORT_OK
+            @ISA
+           );
 
 require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-our $VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
+$VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
 $SIGNING_PROGRAM ||= 'gpg --clearsign --default-key ';
@@ -160,7 +168,7 @@ sub updatedir ($) {
   my $ddump = Data::Dumper->new([$dref],["cksum"])->Dump;
   my @ckfnstat = stat $ckfn;
   if ($old_ddump) {
-    local our $DIRNAME = $dirname;
+    local $DIRNAME = $dirname;
     if ( !!$SIGNING_KEY == !!$is_signed ) { # either both or neither
       if (!$MIN_MTIME_CHECKSUMS || $ckfnstat[9] > $MIN_MTIME_CHECKSUMS ) {
         # recent enough
@@ -293,7 +301,6 @@ sub makehashref ($) {
     my($comp) = Safe->new("CPAN::Checksums::reval");
     my $cksum; # used by Data::Dumper
     $_ = $comp->reval($_) || {};
-    our $DIRNAME;
     die "CPAN::Checksums: Caught error[$@] while checking $DIRNAME" if $@;
   }
   $_;

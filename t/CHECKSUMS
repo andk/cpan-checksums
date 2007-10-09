@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sun Aug  5 12:07:51 2007 GMT by CPAN::Checksums (v1.059)
+# CHECKSUMS file written on Tue Oct  9 02:53:08 2007 GMT by CPAN::Checksums (v1.061)
 $cksum = {
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
@@ -10,7 +10,7 @@ $cksum = {
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2007-08-05',
+    'mtime' => '2007-10-09',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => 3
   },
@@ -28,12 +28,6 @@ $cksum = {
     'sha256' => '558d9083fe9dfa6aa66806caf4545bee35f2cac36592627aeed3b8cf0ca4fdf2',
     'size' => 567
   },
-  '52podcover.t~' => {
-    'md5' => '5c5f7bfdc5e3f240ef1533e5f7b3fd43',
-    'mtime' => '2007-08-05',
-    'sha256' => '0d0c68015fe11bedeec8f5d76cb665355b463ca5a522c6fe44490b54ab9493bb',
-    'size' => 1149
-  },
   'pod.t' => {
     'md5' => '45b17e11a9736a0c485f861f95f063b9',
     'mtime' => '2005-12-15',
@@ -45,11 +39,5 @@ $cksum = {
     'mtime' => '2007-08-05',
     'sha256' => '89c950cea6ccbc8a9302eb161baf971efae34cf0526ce06b28f177c6de386c90',
     'size' => 1460
-  },
-  'updatedir.t~' => {
-    'md5' => '002390111c9960a52ea95e8f9e8bfe60',
-    'mtime' => '2006-04-28',
-    'sha256' => '0959e5d0fb0b61130749c3f5c901e61ccaa3ab49ea5b266286eb77ffa9afd44c',
-    'size' => 1084
   }
 };

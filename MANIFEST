@@ -1,13 +1,11 @@
 ChangeLog.svn
 Checksums.pm
+Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 META.yml
-Makefile
-Makefile.PL
 README
 SIGNATURE
-Todo
 t/42.gz
 t/43
 t/44.bz2
@@ -15,3 +13,4 @@ t/52podcover.t
 t/CHECKSUMS
 t/pod.t
 t/updatedir.t
+Todo
