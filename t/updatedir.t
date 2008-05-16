@@ -11,7 +11,7 @@ my $HAVE_TIME_HIRES = 0;
 sub _f ($) {File::Spec->catfile(split /\//, shift);}
 sub _d ($) {File::Spec->catdir(split /\//, shift);}
 
-my $plan = 20;
+my $plan = 22;
 if (eval { require Time::HiRes; 1; }) {
     $HAVE_TIME_HIRES = 1;
 }
@@ -59,4 +59,7 @@ for my $s (0..7,9..12) { # 8==atime not our business
     is($stat[$s],$stat2[$s],"unchanged stat element $s");
 }
 mkpath _d"t/emptydir";
+$ret = CPAN::Checksums::updatedir(_d"t/emptydir");
+is($ret,2,"empty dir gives also 2");
+ok(-f _f"t/emptydir/CHECKSUMS", "found the checksums file");
 rmtree _d"t/emptydir";

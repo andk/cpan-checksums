@@ -3,7 +3,7 @@ my $Id = q$Id: Makefile.PL 3 2005-10-30 13:58:32Z k $;
 
 my $version_diff = 0; # we'll have to die if this becomes true
 {
-  my $version_from = q(Checksums.pm);
+  my $version_from = q(lib/CPAN/Checksums.pm);
 
   {
     local $^W;
@@ -57,7 +57,7 @@ my $version_diff = 0; # we'll have to die if this becomes true
 }
 WriteMakefile(
               'NAME'	=> 'CPAN::Checksums',
-              'VERSION_FROM' => 'Checksums.pm',
+              'VERSION_FROM' => 'lib/CPAN/Checksums.pm',
               (MM->can("signature_target") ? (SIGN => 1) : ()),
               'PREREQ_PM' => {
                               'Compress::Bzip2' => 0,

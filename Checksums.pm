@@ -18,7 +18,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-$VERSION = sprintf "%.3f", 1 + substr(q$Rev$,4)/1000;
+$VERSION = sprintf "%.3f", 2 + substr(q$Rev$,4)/1000;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
 $SIGNING_PROGRAM ||= 'gpg --clearsign --default-key ';
@@ -158,10 +158,6 @@ sub updatedir ($) {
   my($old_ddump,$is_signed) = _read_old_ddump($ckfn);
   my($old_dref) = makehashref($old_ddump);
   my $dref = _dir_to_dref($dirname,$old_dref);
-  unless (%$dref) { # no files to checksum
-    unlink $ckfn or die "Couldn't unlink '$ckfn': $!" if -f $ckfn;
-    return 1;
-  }
   local $Data::Dumper::Indent = 1;
   local $Data::Dumper::Quotekeys = 1;
   local $Data::Dumper::Sortkeys = 1;
@@ -338,6 +334,9 @@ C<CHECKSUMS> file in that directory as used on CPAN unless a previously
 written C<CHECKSUMS> file is there that is still valid. Returns 2 if a
 new C<CHECKSUMS> file has been written, 1 if a valid C<CHECKSUMS> file is
 already there, otherwise dies.
+
+Note: since version 2.0 updatedir on empty directories behaves just
+the same. In older versions it silently did nothing.
 
 =back
 

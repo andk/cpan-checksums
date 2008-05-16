@@ -1,5 +1,5 @@
 ChangeLog.svn
-Checksums.pm
+lib/CPAN/Checksums.pm
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
