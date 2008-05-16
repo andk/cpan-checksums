@@ -93,7 +93,7 @@ sub MY::postamble {
 setversion:
 	$(PERL) Makefile.PL --setversion
 
-Makefile : Checksums.pm
+Makefile : lib/CPAN/Checksums.pm
 
 README: Makefile
 	$(PERL) -MPod::Text -e 'Pod::Text->new->parse_from_file(\*ARGV)' Checksums.pm > $@
