@@ -52,8 +52,8 @@ my $version_diff = 0; # we'll have to die if this becomes true
       die "could not determine current version from Makefile" unless $have_version;
       eval q{
       no warnings "numeric";
-      if ($CPAN::VERSION != $have_version) {
-        warn "Not equal: CPAN::VERSION[$CPAN::VERSION] Makefile version[$have_version]";
+      if ($CPAN::Checksums::VERSION != $have_version) {
+        warn "Not equal: CPAN::Checksums::VERSION[$CPAN::Checksums::VERSION] Makefile version[$have_version]";
         $version_diff = 1;
       }
 };
