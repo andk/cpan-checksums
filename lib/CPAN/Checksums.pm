@@ -18,7 +18,8 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-$VERSION = sprintf "%.3f", 2 + substr(q$Rev$,4)/1000;
+$VERSION = "2.00";
+$VERSION =~ s/_//;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
 $SIGNING_PROGRAM ||= 'gpg --clearsign --default-key ';

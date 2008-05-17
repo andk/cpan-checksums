@@ -1,0 +1,12 @@
+2008-05-17  Andreas J. Koenig  <andreas.koenig.7os6VVqR@franz.ak.mind.de>
+
+	* Version 2.00
+
+	* empty directories can now also get a checksums file.
+
+	Local Variables:
+	mode: change-log
+	change-log-default-name: "Changes"
+	tab-width: 2
+	left-margin: 2
+	End:

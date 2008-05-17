@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Fri May 16 21:11:25 2008 GMT by CPAN::Checksums (v2.068)
+# CHECKSUMS file written on Sat May 17 05:03:26 2008 GMT by CPAN::Checksums (v2.068)
 $cksum = {
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
@@ -6,13 +6,13 @@ $cksum = {
     'mtime' => '2005-10-30',
     'sha256' => '787e758a975d04560f6a9d4671646a48c4e9da4f40d4e102bc4562cd15c71ab5',
     'sha256-ungz' => '084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0',
-    'size' => '26'
+    'size' => 26
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2008-05-16',
+    'mtime' => '2008-05-17',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
-    'size' => '3'
+    'size' => 3
   },
   '44.bz2' => {
     'md5' => 'b3c551bfbf1d15ce93b47346a11cc87a',
@@ -20,30 +20,30 @@ $cksum = {
     'mtime' => '2005-10-30',
     'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
     'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
-    'size' => '39'
+    'size' => 39
   },
   '52podcover.t' => {
     'md5' => '9845f6c5f049d637c92ae34e67328c77',
     'mtime' => '2007-08-05',
     'sha256' => '558d9083fe9dfa6aa66806caf4545bee35f2cac36592627aeed3b8cf0ca4fdf2',
-    'size' => '567'
+    'size' => 567
   },
   'pod.t' => {
     'md5' => '45b17e11a9736a0c485f861f95f063b9',
     'mtime' => '2005-12-15',
     'sha256' => '6109dadab614d170fc3db10b00a4c41c221860b1b1085a54af9a5f9f52480494',
-    'size' => '152'
+    'size' => 152
   },
   'updatedir.t' => {
     'md5' => 'd7d0955628c58346ffd3201bba829060',
     'mtime' => '2008-05-16',
     'sha256' => '0af9633264d9511f209e2fc0e281b337573bc3acd408f431f85f5b4bfd42a464',
-    'size' => '1775'
+    'size' => 1775
   },
   'updatedir.t~' => {
     'md5' => 'a5e32f54fbf9e437e4f2669526646b24',
     'mtime' => '2007-08-05',
     'sha256' => '89c950cea6ccbc8a9302eb161baf971efae34cf0526ce06b28f177c6de386c90',
-    'size' => '1460'
+    'size' => 1460
   }
 };
