@@ -101,6 +101,7 @@ WriteMakefile(
                                               "verify-changes-date",
                                               "verify-changes-version",
                                               'Makefile',
+                                              "META.yml",
                                               "setversion",
                                               "README",
                                               "all",
