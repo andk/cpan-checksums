@@ -132,6 +132,10 @@ README: Makefile
 chlog ::
 	LC_ALL=en_GB.utf8 svn log -v -r `svnversion . | perl -ne '/(?:\d+:)?(\d+)[SM]*$$/&&print $$1'`:1 > ChangeLog.svn
 
+the-release-name :
+	$(NOECHO) $(ECHO) 'version ' $(VERSION)
+	$(NOECHO) $(ECHO) 'release-name ' $(DISTVNAME).tar$(SUFFIX)
+
 release ::
 	perl -I../../CPAN/SVN/release-lib -S release $(DISTVNAME).tar$(SUFFIX)
 
