@@ -219,6 +219,7 @@ sub _add_digests ($$$$$$$) {
   my($fh) = new IO::File;
   my $dig = $module->new(@$constructor_args);
   $fh->open("$abs\0") or die "Couldn't open $abs: $!";
+  $fh->binmode();
   $dig->addfile($fh);
   $fh->close;
   my $digest = $dig->hexdigest;
