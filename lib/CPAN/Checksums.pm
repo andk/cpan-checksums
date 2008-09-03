@@ -18,7 +18,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-$VERSION = "2.00";
+$VERSION = "2.01";
 $VERSION =~ s/_//;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
