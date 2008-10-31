@@ -128,7 +128,7 @@ setversion:
 Makefile : lib/CPAN/Checksums.pm
 
 README: Makefile
-	$(PERL) -MPod::Text -e 'Pod::Text->new->parse_from_file(\*ARGV)' Checksums.pm > $@
+	$(PERL) -MPod::Text -e 'Pod::Text->new->parse_from_file(\*ARGV)' lib/CPAN/Checksums.pm > $@
 
 chlog ::
 	LC_ALL=en_GB.utf8 svn log -v -r `svnversion . | perl -ne '/(?:\d+:)?(\d+)[SM]*$$/&&print $$1'`:1 > ChangeLog.svn
