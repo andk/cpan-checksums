@@ -1,3 +1,11 @@
+2008-10-31  Andreas J. Koenig  <andreas.koenig.7os6VVqR@franz.ak.mind.de>
+
+	* Version 2.02
+
+	* Bugfix: call binmode as a function and at the same time demand a newer
+	IO::File as prereq. (addressing
+	http://www.nntp.perl.org/group/perl.cpan.testers/2008/10/msg2516449.html)
+
 2008-09-03  Andreas J. Koenig  <andreas.koenig.7os6VVqR@franz.ak.mind.de>
 
 	* Version 2.01
