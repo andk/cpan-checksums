@@ -1,3 +1,12 @@
+2009-09-20  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.03
+
+	* Adding a Copyright statement. Up to now we only had a license but not
+	the copyright statement which makes it difficult for the reader to
+	understand the license. Thanks to Ryan Niebur for bringing this to my
+	attention.
+
 2008-10-31  Andreas J. Koenig  <andreas.koenig.7os6VVqR@franz.ak.mind.de>
 
 	* Version 2.02

@@ -18,7 +18,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-$VERSION = "2.02";
+$VERSION = "2.03";
 $VERSION =~ s/_//;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
@@ -418,12 +418,12 @@ should be harvested by a cronjob.
 
 Andreas Koenig, andreas.koenig@anima.de; GnuPG support by Autrijus Tang
 
-=head1 LICENSE
+=head1 COPYRIGHT & LICENSE
+
+Copyright (c) 2002-2008 Andreas Koenig, Audrey Tang, Steve Peters.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
-
-See L<http://www.perl.com/perl/misc/Artistic.html>
 
 =head1 SEE ALSO
 
