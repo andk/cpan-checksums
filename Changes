@@ -1,3 +1,10 @@
+2009-09-28  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.04
+
+	* Adding a signature verification test. The previous release had two
+	files missing. Signature verification would have notified me.
+
 2009-09-20  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.03

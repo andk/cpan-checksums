@@ -6,6 +6,7 @@ MANIFEST.SKIP
 META.yml
 README
 SIGNATURE
+t/00signature.t
 t/42.gz
 t/43
 t/44.bz2
