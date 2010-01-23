@@ -1,3 +1,10 @@
+2010-01-23  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.05
+
+	* Addressing the test failure in
+	http://www.nntp.perl.org/group/perl.cpan.testers/2010/01/msg6705220.html
+
 2009-09-28  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.04

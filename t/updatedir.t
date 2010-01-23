@@ -11,7 +11,7 @@ my $HAVE_TIME_HIRES = 0;
 sub _f ($) {File::Spec->catfile(split /\//, shift);}
 sub _d ($) {File::Spec->catdir(split /\//, shift);}
 
-my $plan = 22;
+my $plan = 21;
 if (eval { require Time::HiRes; 1; }) {
     $HAVE_TIME_HIRES = 1;
 }
@@ -55,7 +55,7 @@ sleep 2;
 $ret = CPAN::Checksums::updatedir("t");
 is($ret,1,"no change");
 my @stat2 = stat _f"t/CHECKSUMS";
-for my $s (0..7,9..12) { # 8==atime not our business
+for my $s (0..7,9..11) { # 8==atime not our business; 12==blocks may magically change
     is($stat[$s],$stat2[$s],"unchanged stat element $s");
 }
 mkpath _d"t/emptydir";
