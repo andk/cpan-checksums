@@ -133,8 +133,15 @@ the-release-name :
 	$(NOECHO) $(ECHO) 'version ' $(VERSION)
 	$(NOECHO) $(ECHO) 'release-name ' $(DISTVNAME).tar$(SUFFIX)
 
-release ::
-	perl -I../../CPAN/SVN/release-lib -S release $(DISTVNAME).tar$(SUFFIX)
+release :: disttest
+	git tag -m 'This is $(VERSION)' "$(VERSION)"
+	ls -l $(DISTVNAME).tar$(SUFFIX)
+	rm -rf $(DISTVNAME)
+	$(NOECHO) $(ECHO) '  lftp pause.perl.org'
+	$(NOECHO) $(ECHO) '    cd incoming'
+	$(NOECHO) $(ECHO) '    put $(DISTVNAME).tar$(SUFFIX)'
+	$(NOECHO) $(ECHO) '    quit'
+	$(NOECHO) $(ECHO) '  git push --tags'
 
 sign:
 	cpansign -s
