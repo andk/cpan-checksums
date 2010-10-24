@@ -1,3 +1,9 @@
+2010-10-24  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.06
+
+	* add MYMETA.yml to MANIFEST.SKIP
+
 2010-01-23  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.05
