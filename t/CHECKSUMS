@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Mon Sep 28 04:05:17 2009 GMT by CPAN::Checksums (v2.04)
+# CHECKSUMS file written on Sun Oct 24 12:03:26 2010 GMT by CPAN::Checksums (v2.06)
 $cksum = {
   '00signature.t' => {
     'md5' => '859045ee3e28039bbf2a7e74eed68e6a',
@@ -16,7 +16,7 @@ $cksum = {
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2009-09-28',
+    'mtime' => '2010-10-24',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => 3
   },
@@ -41,9 +41,9 @@ $cksum = {
     'size' => 152
   },
   'updatedir.t' => {
-    'md5' => 'd7d0955628c58346ffd3201bba829060',
-    'mtime' => '2008-05-16',
-    'sha256' => '0af9633264d9511f209e2fc0e281b337573bc3acd408f431f85f5b4bfd42a464',
-    'size' => 1775
+    'md5' => 'b2dad83957b2786005860303866548c0',
+    'mtime' => '2010-01-23',
+    'sha256' => '583d24e7cbbf77a61b56ccced45b6f5b17844d0c8146f652fc92e2380ca63cc7',
+    'size' => 1808
   }
 };
