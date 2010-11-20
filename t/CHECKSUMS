@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sat Nov 20 22:12:52 2010 GMT by CPAN::Checksums (v2.07)
+# CHECKSUMS file written on Sat Nov 20 22:14:24 2010 GMT by CPAN::Checksums (v2.07)
 $cksum = {
   '00signature.t' => {
     'md5' => '55d2528e0129b0c32bc51bf287f2ac01',

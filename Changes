@@ -1,3 +1,9 @@
+2010-11-20  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.07; no functional change
+
+	* survive the signature test under bad conditions
+
 2010-10-24  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.06
