@@ -2,6 +2,18 @@
 
 use strict;
 BEGIN {
+    sub find_exe {
+        my($exe,$path) = @_;
+        my($dir);
+        #warn "in find_exe exe[$exe] path[@$path]";
+        for $dir (@$path) {
+            my $abs = File::Spec->catfile($dir,$exe);
+            require ExtUtils::MakeMaker;
+            if (($abs = MM->maybe_command($abs))) {
+                return $abs;
+            }
+        }
+    }
     my $found_prereq = 0;
     unless ($found_prereq) {
         $found_prereq = eval { require Digest::SHA; 1 };
@@ -27,13 +39,25 @@ BEGIN {
         }
     }
     unless ($exit_message) {
-        if (!eval { require Module::Signature; 1 }) {
+        if (eval { require Module::Signature; 1 }) {
+            my $min = "0.66";
+            if ($Module::Signature::VERSION < $min-0.0000001) {
+                $exit_message = "Signature testing disabled for Module::Signature versions < $min";
+            }
+        } else {
             $exit_message = "No Module::Signature found [INC = @INC]";
         }
     }
     unless ($exit_message) {
-        if (!eval { require Socket; Socket::inet_aton('pgp.mit.edu') }) {
+        if (!eval { require Socket; Socket::inet_aton('pool.sks-keyservers.net') }) {
             $exit_message = "Cannot connect to the keyserver";
+        }
+    }
+    unless ($exit_message) {
+        require Config;
+        my(@path) = split /$Config::Config{'path_sep'}/, $ENV{'PATH'};
+        if (!find_exe('gpg',\@path)) {
+            $exit_message = "Signature testing disabled without gpg program available";
         }
     }
     if ($exit_message) {

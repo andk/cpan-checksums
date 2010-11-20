@@ -77,22 +77,32 @@ my $version_diff = 0; # we'll have to die if this becomes true
     exit unless $version_diff;
   }
 }
+my $prereq_pm = {
+                 'Compress::Bzip2' => 0,
+                 'Compress::Zlib' => 0,
+                 'Data::Compare' => 0,
+                 'Data::Dumper' => 0,
+                 'Digest::MD5' => "2.36",
+                 'Digest::SHA' => 0,
+                 'DirHandle' => 0,
+                 'File::Spec' => 0,
+                 'File::Temp' => 0,
+                 'IO::File' => "1.14",
+                };
+for my $interesting_module (qw(
+        Module::Signature
+                             )) {
+    eval "require $interesting_module";
+    if (!$@) {
+        $prereq_pm->{$interesting_module} ||= 0;
+    }
+}
+
 WriteMakefile(
               'NAME'	=> 'CPAN::Checksums',
               'VERSION_FROM' => 'lib/CPAN/Checksums.pm',
               (MM->can("signature_target") ? (SIGN => 1) : ()),
-              'PREREQ_PM' => {
-                              'Compress::Bzip2' => 0,
-                              'Compress::Zlib' => 0,
-                              'Data::Compare' => 0,
-                              'Data::Dumper' => 0,
-                              'Digest::MD5' => "2.36",
-                              'Digest::SHA' => 0,
-                              'DirHandle' => 0,
-                              'File::Spec' => 0,
-                              'File::Temp' => 0,
-                              'IO::File' => "1.14",
-                             },
+              'PREREQ_PM' => $prereq_pm,
               ($ExtUtils::MakeMaker::VERSION >= 6.3002 ?
                (LICENSE      => "perl") : (),
               ),
