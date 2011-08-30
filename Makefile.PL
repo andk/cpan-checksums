@@ -129,7 +129,8 @@ if ($version_diff){
 ";
 }
 
-sub MY::postamble {
+package MY;
+sub postamble {
   q{
 setversion:
 	$(PERL) Makefile.PL --setversion
@@ -169,13 +170,13 @@ verify-changes-version:
 }
 }
 
-sub MY::dist_ci {
+sub dist_ci {
   return qq{ci :
 	svn ci
 };
 }
 
-sub MY::dist_test {
+sub dist_test {
   return q{
 # if we depend on $(DISTVNAME).tar$(SUFFIX), then the rest of the
 # Makefile breaks our intent to NOT remake dist
@@ -187,4 +188,10 @@ disttest :
 	cd $(DISTVNAME) && $(MAKE) test $(PASTHRU)
 
 }
+}
+sub distsignature {
+    my($self) = shift;
+    my $ret = $self->SUPER::distsignature_target(@_);
+    $ret =~ s|cpansign|\`dirname \$(PERL)\`/cpansign|g;
+    return $ret;
 }
