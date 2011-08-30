@@ -1,3 +1,9 @@
+2011-08-30  Andreas J. Koenig  <andk@cpan.org>
+
+	* Version 2.08; no functional change
+
+	* survive newest toolchain that creates a MYMETA.json
+
 2010-11-20  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.07; no functional change

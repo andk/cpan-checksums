@@ -154,7 +154,7 @@ release :: disttest
 	$(NOECHO) $(ECHO) '  Once we are on git: git push --tags'
 
 sign:
-	cpansign -s
+	`dirname $(PERL)`/cpansign -s
 
 META.yml: metafile
 	$(CP) $(DISTVNAME)/META.yml  ./META.yml

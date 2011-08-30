@@ -1,4 +1,4 @@
-MYMETA.yml
+MYMETA.(yml|json)
 ChangeLog.old
 DISTS
 MANIFEST.bak
