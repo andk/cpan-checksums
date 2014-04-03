@@ -49,7 +49,19 @@ BEGIN {
         }
     }
     unless ($exit_message) {
-        if (!eval { require Socket; Socket::inet_aton('pool.sks-keyservers.net') }) {
+        if (!eval {
+                use Socket qw(AF_INET SOCK_STREAM pack_sockaddr_in inet_aton);
+                my $socket;
+                socket($socket, AF_INET, SOCK_STREAM, 0) and
+                connect(
+                    $socket,
+                    pack_sockaddr_in(
+                        scalar getservbyname('hkp', 'tcp'),
+                        inet_aton('pool.sks-keyservers.net')
+                    )
+                ) and
+                close($socket)
+            }) {
             $exit_message = "Cannot connect to the keyserver";
         }
     }
