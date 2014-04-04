@@ -1,3 +1,9 @@
+2014-04-04  k  <andk@cpan.org>
+
+	* Version 2.09; no functional change
+
+	* improve test signature.t (Petr Písař)
+
 2011-08-30  Andreas J. Koenig  <andk@cpan.org>
 
 	* Version 2.08; no functional change
