@@ -20,27 +20,12 @@ my $version_diff = 0; # we'll have to die if this becomes true
         MM->can("signature_target");
     shift @ARGV;
     local $ENV{LANG} = "C";
-    open my $st, "svn st -u|" or die;
-    my $dirty = 0;
-    while (<$st>) {
-      next if /^\?/;
-      next if /^Head revision:/;
-      next if /^Status against revision:/;
-      print;
-      $dirty++;
-    }
-    close $st;
+    my $dirty = `git status --porcelain --untracked-files=no`;
     die "Not everything checked in?" if $dirty;
 
-    # $re parses the upper boundary of the output of svnversion
-    my $re = qr/(?:\d+:)?(\d+)[SM]*$/;
-    my($sv_dot)  = `svnversion .`             =~ $re;
-    my($sv_from) = `svn st -u -v $version_from`  =~ /^.{8}\s*(?:\d+)\s*(\d+)/;
-    die "Could not determine sv_from or sv_dot"
-        unless $sv_from > 0 && $sv_dot > 0;
     my $version_set_manually = 1;
     if ($version_set_manually) {
-      # we must control that the VERSION in CPAN.pm is the same as in the Makefile
+      # we must control that the VERSION in this .pm is the same as in the Makefile
       unshift @INC, "lib";
       require $version_from;
       open my $fh, "make the-release-name|" or die;
@@ -59,20 +44,7 @@ my $version_diff = 0; # we'll have to die if this becomes true
 };
       die $@ if $@;
     } else {
-      if ($sv_dot > $sv_from) {
-        warn "setting some property to make a checkin of this file possible";
-        0==system(svn => "propset",
-                  "cpan:release",
-                  "after_$sv_dot",
-                  $version_from) or die;
-        warn "checking in to get the version up to the bleading edge";
-        0==system(svn => "ci",
-                  "-m",
-                  "Property set for release after_$sv_dot",
-                  $version_from) or die;
-        # will have to die after Makefile is rewritten:
-        $version_diff = 1;
-      }
+        die;
     }
     exit unless $version_diff;
   }
@@ -168,12 +140,6 @@ verify-changes-version:
 	@$(PERL) -ne '$$ok++,exit if /\b$(VERSION)\b/; END{die "Alert: did not find <$(VERSION)> in Changes file" unless $$ok}' Changes
 
 }
-}
-
-sub dist_ci {
-  return qq{ci :
-	svn ci
-};
 }
 
 sub dist_test {
