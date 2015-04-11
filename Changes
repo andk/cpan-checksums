@@ -1,3 +1,14 @@
+2015-04-11  k  <andk@cpan.org>
+
+	* Version 2.10; no functional change
+
+	* 00signature.t: survive recent changes in ExtUtils::MakeMaker (_eumm)
+	and in Module::Signature ($ENV{TEST_SIGNATURE})
+
+	* add repository address to the Makefile.PL
+
+	* add Changes file to the MANIFEST
+
 2014-04-04  k  <andk@cpan.org>
 
 	* Version 2.09; no functional change

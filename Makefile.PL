@@ -1,6 +1,6 @@
+#!/usr/bin/perl -w -*- mode: cperl -*-
+use strict;
 use ExtUtils::MakeMaker qw(:DEFAULT);
-my $Id = q$Id: Makefile.PL 3 2005-10-30 13:58:32Z k $;
-
 my $version_diff = 0; # we'll have to die if this becomes true
 {
   my $version_from = q(lib/CPAN/Checksums.pm);
@@ -13,9 +13,9 @@ my $version_diff = 0; # we'll have to die if this becomes true
   }
 
   if ($ARGV[0] && $ARGV[0] eq "--setversion") {
-    die "Your perl is a bit dated[$]].\nDo not make a release with it\n" if $] < 5.008;
+    die "Your perl is a bit dated[$]].\nDo not make a release with it\n" if $] < 5.016;
     die "Your MakeMaker is a bit dated[$ExtUtils::MakeMaker::VERSION].\nDo not make a release with it\n"
-        if $ExtUtils::MakeMaker::VERSION < 6.4;
+        if $ExtUtils::MakeMaker::VERSION < 7;
     die "Your MakeMaker doesn't do the sign woodoo" unless
         MM->can("signature_target");
     shift @ARGV;
@@ -91,6 +91,14 @@ WriteMakefile(
                                               ),
                          COMPRESS => 'gzip -9f'
                         },
+              # I took it from RT-CPAN ticket 30098:
+              ($ExtUtils::MakeMaker::VERSION >= 6.4502 ?
+               (META_ADD => {
+                             resources => {
+                                 repository => "git://github.com/andk/cpan-checksums.git",
+                             },
+                             keywords => ['CPAN infrastructure','per-directory indexing and signing'],
+                            }) : ()),
              );
 
 if ($version_diff){
