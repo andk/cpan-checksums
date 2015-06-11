@@ -40,7 +40,8 @@ BEGIN {
     }
     unless ($exit_message) {
         if (eval { require Module::Signature; 1 }) {
-            my $min = "0.66";
+            my $min = "0.79"; # <sjn> heya. Just found that CPAN::Checksum fails it's t/00signature.t 
+                              #       test if Module::Signature is version 0.68.
             if ($Module::Signature::VERSION < $min-0.0000001) {
                 $exit_message = "Signature testing disabled for Module::Signature versions < $min";
             }
