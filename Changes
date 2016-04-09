@@ -6,6 +6,9 @@
 	.tgz and .tbz. Up to now those did not get a checksum for the uncompress
 	file (requested by Ralf Neubauer)
 
+	* bump the Module::Signature version that decides whether to test or not
+	to test (Salve J. Nilsen)
+
 2015-04-11  k  <andk@cpan.org>
 
 	* Version 2.10; no functional change
