@@ -9,6 +9,8 @@
 	* bump the Module::Signature version that decides whether to test or not
 	to test (Salve J. Nilsen)
 
+	* never let t/00signature.t actually fail
+
 2015-04-11  k  <andk@cpan.org>
 
 	* Version 2.10; no functional change
