@@ -1,3 +1,11 @@
+2016-04-09  k  <andk@cpan.org>
+
+	* Version 2.11
+
+	* address #113615: extend the production rules for compressed file to
+	.tgz and .tbz. Up to now those did not get a checksum for the uncompress
+	file (requested by Ralf Neubauer)
+
 2015-04-11  k  <andk@cpan.org>
 
 	* Version 2.10; no functional change

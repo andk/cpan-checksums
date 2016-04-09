@@ -1,48 +1,56 @@
-# CHECKSUMS file written on Sat Nov 20 22:14:24 2010 GMT by CPAN::Checksums (v2.07)
+# CHECKSUMS file written on Sat Apr  9 04:56:16 2016 GMT by CPAN::Checksums (v2.11)
 $cksum = {
   '00signature.t' => {
-    'md5' => '55d2528e0129b0c32bc51bf287f2ac01',
-    'mtime' => '2010-11-20',
-    'sha256' => 'f429ad014eb27261603740854130e696bd106a087f0f92086b2862a3af6dcaf4',
-    'size' => 2344
+    'md5' => '006e87641199b64f89d9976815a50b4d',
+    'mtime' => '2015-06-11',
+    'sha256' => '95db378c031f5b3769aa64a0e30367c70a8fcd603fe46954ae9a7c66b3f21c1e',
+    'size' => 2931
   },
   '42.gz' => {
     'md5' => '915cdde7181ab542763969e063b7a9a9',
     'md5-ungz' => '50a2fabfdd276f573ff97ace8b11c5f4',
-    'mtime' => '2005-10-30',
+    'mtime' => '2014-04-04',
     'sha256' => '787e758a975d04560f6a9d4671646a48c4e9da4f40d4e102bc4562cd15c71ab5',
     'sha256-ungz' => '084c799cd551dd1d8d5c5f9a5d593b2e931f5e36122ee5c793c1d08a19839cc0',
     'size' => 26
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2010-11-20',
+    'mtime' => '2016-04-09',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => 3
   },
   '44.bz2' => {
     'md5' => 'b3c551bfbf1d15ce93b47346a11cc87a',
     'md5-unbz2' => 'e760668b6273d38c832c153fde5725da',
-    'mtime' => '2005-10-30',
+    'mtime' => '2014-04-04',
     'sha256' => '09f646275a0b0622418ed364affe3c2df7dbb02c01862d84d7d06e6b6605c790',
     'sha256-unbz2' => 'b1ce0aa6fdf3cf349d773243dab9fbbe09d30619f38b0c1e8977e28c4f0bc495',
     'size' => 39
   },
+  '45.tgz' => {
+    'md5' => '451f5c94254854f9b50e0e0d815efc25',
+    'md5-ungz' => '40b724cf2b5b077219e99409e33f233f',
+    'mtime' => '2016-04-09',
+    'sha256' => '00a153865e3f7bd5dd0627767a1763404d36fa34793db95ba6d403530d09cdfd',
+    'sha256-ungz' => '75e63a955767ae72abf0675e666ae6f3774dce667cb3503d5af6b936ae05a785',
+    'size' => 115
+  },
   '52podcover.t' => {
     'md5' => '9845f6c5f049d637c92ae34e67328c77',
-    'mtime' => '2007-08-05',
+    'mtime' => '2014-04-04',
     'sha256' => '558d9083fe9dfa6aa66806caf4545bee35f2cac36592627aeed3b8cf0ca4fdf2',
     'size' => 567
   },
   'pod.t' => {
     'md5' => '45b17e11a9736a0c485f861f95f063b9',
-    'mtime' => '2005-12-15',
+    'mtime' => '2014-04-04',
     'sha256' => '6109dadab614d170fc3db10b00a4c41c221860b1b1085a54af9a5f9f52480494',
     'size' => 152
   },
   'updatedir.t' => {
     'md5' => 'b2dad83957b2786005860303866548c0',
-    'mtime' => '2010-01-23',
+    'mtime' => '2014-04-04',
     'sha256' => '583d24e7cbbf77a61b56ccced45b6f5b17844d0c8146f652fc92e2380ca63cc7',
     'size' => 1808
   }

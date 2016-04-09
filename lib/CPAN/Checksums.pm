@@ -18,7 +18,7 @@ require Exporter;
 
 @ISA = qw(Exporter);
 @EXPORT_OK = qw(updatedir);
-$VERSION = "2.10";
+$VERSION = "2.11";
 $VERSION =~ s/_//;
 $CAUTION ||= 0;
 $TRY_SHORTNAME ||= 0;
@@ -227,7 +227,7 @@ sub _add_digests ($$$$$$$) {
   my $digest = $dig->hexdigest;
   $dref->{$de}{$keyname} = $digest;
   $dig = $module->new(@$constructor_args);
-  if ($de =~ /\.gz$/) {
+  if ($de =~ /\.(gz|tgz)$/) {
     my($buffer, $zip);
     if (exists $old_dref->{$de}{$keyname} &&
         $dref->{$de}{$keyname} eq $old_dref->{$de}{$keyname} &&
@@ -242,7 +242,7 @@ sub _add_digests ($$$$$$$) {
       $dref->{$de}{"$keyname-ungz"} = $dig->hexdigest;
       $zip->gzclose;
     }
-  } elsif ($de =~ /\.bz2$/) {
+  } elsif ($de =~ /\.(bz2|tbz)$/) {
     my($buffer, $zip);
     if (exists $old_dref->{$de}{$keyname} &&
         $dref->{$de}{$keyname} eq $old_dref->{$de}{$keyname} &&
