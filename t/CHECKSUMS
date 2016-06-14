@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sat Apr  9 05:18:30 2016 GMT by CPAN::Checksums (v2.11)
+# CHECKSUMS file written on Tue Jun 14 02:38:37 2016 GMT by CPAN::Checksums (v2.12)
 $cksum = {
   '00signature.t' => {
     'md5' => 'dcc4cfdebab983f1d9cc71b1418d4d18',
@@ -16,7 +16,7 @@ $cksum = {
   },
   '43' => {
     'md5' => 'f0287f33eba7192e2a9c6a14f829aa1a',
-    'mtime' => '2016-04-09',
+    'mtime' => '2016-06-14',
     'sha256' => '0e55092af0746630c98d1b2e0d960617c33f8ea7b55739fd18cb7cd5342a28ca',
     'size' => 3
   },
