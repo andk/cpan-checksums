@@ -1,3 +1,4 @@
+# -*- cperl-indent-level: 2  -*-
 package CPAN::Checksums;
 
 use strict;
@@ -120,6 +121,14 @@ sub _dir_to_dref {
           $can_reuse_old_md5 = 0;
           last COMPARE;
         }
+      }
+      if ($can_reuse_old_md5
+          and $de =~ /\.(gz|tgz|bz2|tbz)$/
+          and exists $old_dref->{$de}{md5}
+          and !exists $old_dref->{$de}{"md5-ungz"}
+          and !exists $old_dref->{$de}{"md5-unbz2"}
+         ) {
+        $can_reuse_old_md5 = 0;
       }
       if ( $can_reuse_old_md5 ) {
         for my $param (qw(md5 md5-ungz md5-unbz2)) {
