@@ -1,4 +1,4 @@
-# CHECKSUMS file written on Sat Nov 20 20:50:08 2021 GMT by CPAN::Checksums (v2.12)
+# CHECKSUMS file written on Sat Nov 20 21:00:28 2021 GMT by CPAN::Checksums (v2.13)
 $cksum = {
   '00signature.t' => {
     'cpan_path' => 'CPAN-Checksums/t',
