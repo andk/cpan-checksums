@@ -81,8 +81,8 @@ ok(-f _f"t/emptydir/CHECKSUMS", "found the checksums file");
     eval $checksums;
     ok exists $cksum->{1}, "checksums file contains file 1";
     is $cksum->{1}{size}, 1, "size of file 1 is 1";
-    is $cksum->{1}{cpan_path}, "CPAN-Checksums/t/tdir", "cpan_path is as expected"
-        or diag explain $cksum;
+    like $cksum->{1}{cpan_path}, qr"CPAN-Checksums[-\d\.]*/t/tdir",
+        "cpan_path is as expected" or diag explain $cksum;
     ok exists $cksum->{2}, "checksums file contains file 2";
     is $cksum->{2}{size}, 2, "size of file 2 is 2";
     unlink, _f"t/tdir/2";
