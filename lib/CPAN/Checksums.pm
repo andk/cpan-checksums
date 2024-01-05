@@ -196,6 +196,7 @@ sub updatedir ($) {
   close $ft;
   my($fh) = new IO::File;
   open $fh, ">$tckfn\0" or die "Couldn't open >$tckfn\: $!";
+  binmode $fh, ':raw'; # we want no difference between \r\n and \n so we always write \n
 
   local $\;
   if ($SIGNING_KEY) {

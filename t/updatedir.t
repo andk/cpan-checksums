@@ -39,7 +39,7 @@ my $warn;
     my $tooktime = ($HAVE_TIME_HIRES ? Time::HiRes::time() : time) - $start;
     is($ret,1,"no change tooktime[$tooktime]");
 
-    open F, ">", _f"t/43";
+    open F, ">:raw", _f"t/43";
     print F "43\n";
     close F;
     $warn="";
@@ -61,19 +61,23 @@ $ret = CPAN::Checksums::updatedir(_d"t/emptydir");
 is($ret,2,"empty dir gives also 2");
 ok(-f _f"t/emptydir/CHECKSUMS", "found the checksums file");
 {
+    if( -d _d"t/tdir") {
+	    # Clean up a left-over test directory
+	    rmtree _d"t/tdir";
+    }
     rename _d"t/emptydir", _d"t/tdir" or die "Could not rename: $!";
     $ret = CPAN::Checksums::updatedir(_d"t/tdir");
     is($ret,1,"after a rename gives 1");
-    open my $fh, ">", _f"t/tdir/1";
+    open my $fh, ">:raw", _f"t/tdir/1";
     print $fh "1";
     close $fh or die "Could not close: $!";
-    open $fh, ">", _f"t/tdir/2";
+    open $fh, ">:raw", _f"t/tdir/2";
     print $fh "2\n";
     close $fh or die "Could not close: $!";
     $ret = CPAN::Checksums::updatedir(_d"t/tdir");
     is($ret,2,"tdir with files returns 2");
     my $checksums = do {
-        open $fh, "<", _f"t/tdir/CHECKSUMS" or die "Could not open: $!";
+        open my $fh, "<", _f"t/tdir/CHECKSUMS" or die "Could not open: $!";
         local $/;
         <$fh>
     };
