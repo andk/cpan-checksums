@@ -61,6 +61,10 @@ $ret = CPAN::Checksums::updatedir(_d"t/emptydir");
 is($ret,2,"empty dir gives also 2");
 ok(-f _f"t/emptydir/CHECKSUMS", "found the checksums file");
 {
+    if( -d _d"t/tdir") {
+	    # Clean up a left-over test directory
+	    rmtree _d"t/tdir";
+    }
     rename _d"t/emptydir", _d"t/tdir" or die "Could not rename: $!";
     $ret = CPAN::Checksums::updatedir(_d"t/tdir");
     is($ret,1,"after a rename gives 1");
