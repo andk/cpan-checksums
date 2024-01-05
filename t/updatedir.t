@@ -73,7 +73,7 @@ ok(-f _f"t/emptydir/CHECKSUMS", "found the checksums file");
     $ret = CPAN::Checksums::updatedir(_d"t/tdir");
     is($ret,2,"tdir with files returns 2");
     my $checksums = do {
-        open $fh, "<", _f"t/tdir/CHECKSUMS" or die "Could not open: $!";
+        open my $fh, "<", _f"t/tdir/CHECKSUMS" or die "Could not open: $!";
         local $/;
         <$fh>
     };
